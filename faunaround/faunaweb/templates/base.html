@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{% block title %}FAUNAround{% endblock title %}</title>
+        <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    </head>
+    <body>
+        <header>
+            <h1>FAUNAround</h1>
+            <h2>Best place to record your fauna observations</h2>
+        </header>
+        <nav>
+            <ul class="flex-menu">
+                <li><a href="{% url 'index' %}">HOME</a></li>
+                <li>Animal Classes</li>
+                <li>Observations</li>
+                <li>Analytics</li>
+                <li>About Us</li>
+                <li class="user-menu">Sign Up</li>
+                <li>Login</li>
+            </ul>
+        </nav>
+        <main>
+            {% block content %}{% endblock content %}
+        </main>
+        <footer>
+            <p>&copy; 2023 FAUNAround</p>
+        </footer>
+    </body>
+</html>
