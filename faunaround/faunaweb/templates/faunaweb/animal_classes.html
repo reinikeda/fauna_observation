@@ -4,7 +4,7 @@
 <div class="flex-main">
     {% if animalclass_list.count > 0 %}
         {% for class in animalclass_list %}
-        <a href="{% url class.class_en|lower %}">
+            <a href="{% url 'one_class' class_type=class.class_en|lower %}">
             <div class="flex-classes-box">
                 <p>{{ class.class_scientific }}</p>
                 <p>{{ class.class_national }}</p>

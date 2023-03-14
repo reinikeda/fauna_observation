@@ -12,49 +12,28 @@ class AnimalClassView(generic.ListView):
     template_name = 'faunaweb/animal_classes.html'
 
 
-class MammalsView(generic.ListView):
-    model = models.Mammals
+class OneClassView(generic.ListView):
+    model = models.Animal
     paginate_by = 12
-    template_name = 'faunaweb/mammals.html'
+    template_name = 'faunaweb/one_class.html'
 
-
-class BirdsView(generic.ListView):
-    model = models.Birds
-    paginate_by = 12
-    template_name = 'faunaweb/birds.html'
-
-
-class RayfinnedFishesView(generic.ListView):
-    model = models.RayfinnedFishes
-    paginate_by = 12
-    template_name = 'faunaweb/rayfinnedfishes.html'
-
-
-class ReptilesView(generic.ListView):
-    model = models.Reptiles
-    paginate_by = 12
-    template_name = 'faunaweb/reptiles.html'
-
-
-class AmphibiansView(generic.ListView):
-    model = models.Amphibians
-    paginate_by = 12
-    template_name = 'faunaweb/amphibians.html'
-
-
-class MalacostracansView(generic.ListView):
-    model = models.Malacostracans
-    paginate_by = 12
-    template_name = 'faunaweb/malacostracans.html'
-
-
-class InsectsView(generic.ListView):
-    model = models.Insects
-    paginate_by = 12
-    template_name = 'faunaweb/insects.html'
-
-
-class ArachnidsView(generic.ListView):
-    model = models.Arachnids
-    paginate_by = 12
-    template_name = 'faunaweb/arachnids.html'
+    def get_queryset(self):
+        class_type = self.kwargs['class_type']
+        if class_type == 'mammals':
+            return models.Mammals.objects.all()
+        elif class_type == 'birds':
+            return models.Birds.objects.all()
+        elif class_type == 'rayfinnedfishes':
+            return models.RayfinnedFishes.objects.all()
+        elif class_type == 'reptiles':
+            return models.Reptiles.objects.all()
+        elif class_type == 'amphibians':
+            return models.Amphibians.objects.all()
+        elif class_type == 'malacostracans':
+            return models.Malacostracans.objects.all()
+        elif class_type == 'insects':
+            return models.Insects.objects.all()
+        elif class_type == 'arachnids':
+            return models.Arachnids.objects.all()
+        else:
+            return models.Animal.objects.none()
