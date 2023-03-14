@@ -1,4 +1,5 @@
-import csv
+from django.db.models import Q
+from django.core.paginator import Paginator
 from django.shortcuts import render, get_object_or_404
 from django.views import generic
 from django.utils.translation import gettext_lazy as _
@@ -20,20 +21,28 @@ class OneClassView(generic.ListView):
     def get_queryset(self):
         class_type = self.kwargs['class_type']
         if class_type == 'mammals':
-            return models.Mammals.objects.all()
+            qs = models.Mammals.objects.all()
         elif class_type == 'birds':
-            return models.Birds.objects.all()
+            qs = models.Birds.objects.all()
         elif class_type == 'rayfinnedfishes':
-            return models.RayfinnedFishes.objects.all()
+            qs = models.RayfinnedFishes.objects.all()
         elif class_type == 'reptiles':
-            return models.Reptiles.objects.all()
+            qs = models.Reptiles.objects.all()
         elif class_type == 'amphibians':
-            return models.Amphibians.objects.all()
+            qs = models.Amphibians.objects.all()
         elif class_type == 'malacostracans':
-            return models.Malacostracans.objects.all()
+            qs = models.Malacostracans.objects.all()
         elif class_type == 'insects':
-            return models.Insects.objects.all()
+            qs = models.Insects.objects.all()
         elif class_type == 'arachnids':
-            return models.Arachnids.objects.all()
+            qs = models.Arachnids.objects.all()
         else:
-            return models.Animal.objects.none()
+            qs = models.Animal.objects.none()
+        query = self.request.GET.get('search')
+        if query:
+            qs = qs.filter(
+                Q(species_scientific__icontains=query) |
+                Q(species_en__icontains=query) |
+                Q(species_national__icontains=query)
+            )
+        return qs
