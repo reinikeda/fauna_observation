@@ -4,8 +4,9 @@
 {% block content %}
 <div class="flex-main">
     <div class="flex-species-box">
-        <h2>{{ object.species_scientific }}</h2>
-        <h3>{{ object.species_national }}</h3>
+        <h2>{{ object.species_scientific }} - {{ object.species_national }}</h2>
+        <h3>{{ object.family_scientific }} - {{ object.family_national }}</h3>
+        <h3>{{ object.order_scientific }} - {{ object.order_national }}</h3>
     </div>
     <div class="flex-species-box">
         <p>No species info yet</p>

@@ -9,6 +9,10 @@ from . import models
 def index(request):
     return render(request, 'faunaweb/index.html')
 
+def about(request):
+    return render(request, 'faunaweb/about.html')
+
+
 class AnimalClassListView(generic.ListView):
     model = models.AnimalClass
     template_name = 'faunaweb/animal_classes.html'
