@@ -42,6 +42,8 @@ class Animal(models.Model):
         abstract = True
         ordering = ['order_scientific', 'species_scientific']
 
+    def get_model_name(self):
+        return self.__class__.__name__.lower()
 
 class Mammals(Animal):
     class Meta:

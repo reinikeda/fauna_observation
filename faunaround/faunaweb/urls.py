@@ -3,6 +3,7 @@ from . import views
 
 urlpatterns = [
      path('', views.index, name='index'),
-     path('animal_classes/', views.AnimalClassView.as_view(), name='animals'),
-     path('animal_classes/<str:class_type>/', views.OneClassView.as_view(), name='one_class'),
+     path('animal_classes/', views.AnimalClassListView.as_view(), name='all_classes'),
+     path('animal_classes/<str:class_type>/', views.SpeciesListView.as_view(), name='species_list'),
+     path('<str:model_name>/<int:pk>/', views.SpeciesDetailView.as_view(), name='species_detail'),
 ]
