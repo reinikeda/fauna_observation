@@ -12,7 +12,6 @@ def index(request):
 def about(request):
     return render(request, 'faunaweb/about.html')
 
-
 class AnimalClassListView(generic.ListView):
     model = models.AnimalClass
     template_name = 'faunaweb/animal_classes.html'
@@ -76,6 +75,5 @@ class SpeciesDetailView(generic.DetailView):
     
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        # Add the model name to the context
         context['model_name'] = self.kwargs['model_name']
         return context

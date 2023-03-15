@@ -1,5 +1,10 @@
+from datetime import date
+from PIL import Image
+from django.contrib.auth import get_user_model
 from django.db import models
 from django.utils.translation import gettext_lazy as _
+
+User = get_user_model()
 
 
 class AnimalClass(models.Model):
@@ -91,3 +96,16 @@ class Arachnids(Animal):
     class Meta:
         verbose_name = _('arachnids species')
         verbose_name_plural = _('arachnids species')
+
+
+class Place(models.Model):
+    place_en = models.CharField(_('place english name'), max_length=200, null=True, blank=True)
+    place_national = models.CharField(_('place national name'), max_length=200, null=False, blank=False)
+
+    def __str__(self):
+        return f'{self.place_national}'
+
+    class Meta:
+        ordering = ['place_national']
+        verbose_name = _('place')
+        verbose_name_plural = _('places')

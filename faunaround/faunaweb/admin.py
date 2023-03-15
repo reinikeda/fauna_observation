@@ -11,6 +11,7 @@ class AnimalResource(resources.ModelResource):
 
 class AnimalClassAdmin(ImportExportModelAdmin):
     resource_class = AnimalResource
+    list_display = ('class_scientific', 'class_en', 'class_national')
 
 
 class BaseClassAdmin(ImportExportModelAdmin):
@@ -68,6 +69,16 @@ class ArachnidsRecource(BaseClassAdmin):
     model = models.Arachnids
 
 
+class PlaceResource(resources.ModelResource):
+    model = models.Place
+
+class PlaceAdmin(ImportExportModelAdmin):
+    resource_class = PlaceResource
+    list_display = ('place_en', 'place_national')
+    list_display_links = ('place_national', )
+    search_fields = ('place_en', 'place_national', )
+
+
 admin.site.register(models.AnimalClass, AnimalClassAdmin)
 admin.site.register(models.Mammals, BaseClassAdmin)
 admin.site.register(models.Birds, BaseClassAdmin)
@@ -77,3 +88,4 @@ admin.site.register(models.Amphibians, BaseClassAdmin)
 admin.site.register(models.Malacostracans, BaseClassAdmin)
 admin.site.register(models.Insects, BaseClassAdmin)
 admin.site.register(models.Arachnids, BaseClassAdmin)
+admin.site.register(models.Place, PlaceAdmin)
