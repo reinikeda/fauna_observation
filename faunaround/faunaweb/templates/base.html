@@ -18,7 +18,7 @@
             <ul class="flex-menu">
                 <li><a href="{% url 'index' %}">HOME</a></li>
                 <li><a href="{% url 'all_classes' %}">Animal Classes</a></li>
-                <li>Observations</li>
+                <li><a href="{% url 'observations' %}">Observations</a></li>
                 <li>Analytics</li>
                 <li><a href="{% url 'about' %}">About Us</a></li>
                 {% if request.user.is_authenticated %}

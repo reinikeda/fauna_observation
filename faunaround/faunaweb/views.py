@@ -37,3 +37,8 @@ class AnimalSpeciesListView(generic.ListView):
 class AnimalSpeciesDetailView(generic.DetailView):
     model = models.AnimalSpecies
     template_name = 'faunaweb/species_detail.html'
+
+
+class ObservationListView(generic.ListView):
+    model = models.Observation
+    template_name = 'faunaweb/observation.html'

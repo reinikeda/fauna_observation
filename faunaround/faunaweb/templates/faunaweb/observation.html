@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}{{ block.super }}{% endblock title %}
+{% block content %}
+<h1>Observations</h1>
+{% if observation_list %}
+<table class="observation-table">
+    <tr>
+        <th>Date</th>
+        <th>Class</th>
+        <th>Species</th>
+        <th>Count</th>
+        <th>Place</th>
+        <th>Observer</th>
+        <th>Photo</th>
+    </tr>
+    {% for observation in observation_list %}
+        <tr>
+            <td>{{ observation.date }}</td>
+            <td>{{ observation.species.class_id.class_national }} ({{ observation.species.class_id.class_scientific }})</td>
+            <td>{{ observation.species.species_national }} ({{ observation.species.species_scientific }})</td>
+            <td>{{ observation.count }}</td>
+            <td>{{ observation.place }}</td>
+            <td>{{ observation.observer }}</td>
+            <td>
+                {% if observation.photo %}
+                <p>Show image here</p>
+                {% else %}
+                <p>No image uploaded</p>
+                {% endif %}
+            </td>
+        </tr>
+    {% endfor %}
+<table>
+{% else %}
+    <p>No observations yet</p>
+{% endif %}
+{% endblock content %}

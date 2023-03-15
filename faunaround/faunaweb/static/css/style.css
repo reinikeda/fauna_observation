@@ -131,3 +131,15 @@ a:hover {
     padding-inline-start: 0;
     list-style-type: none;
 }
+.observation-table {
+    border-collapse: collapse;
+    width: 100%;
+    text-align: center;
+}
+.observation-table th {
+    background-color: #9DC08B;
+}
+.observation-table th, td {
+    border: 1px solid #E4EFE7;
+    padding: 1rem;
+}

@@ -1,3 +1,5 @@
+from PIL import Image
+from datetime import date
 from django.contrib.auth import get_user_model
 from django.db import models
 from django.utils.translation import gettext_lazy as _
@@ -56,3 +58,49 @@ class Place(models.Model):
         ordering = ['place_national']
         verbose_name = _('place')
         verbose_name_plural = _('places')
+
+
+class Observation(models.Model):
+    species = models.ForeignKey(
+        AnimalSpecies,
+        on_delete=models.PROTECT,
+        related_name='observation',
+        verbose_name=_('animal species')
+    )
+    date = models.DateField(_('date'), auto_now_add=False, default=date.today)
+    count = models.IntegerField(_('count'), default=1)
+    place = models.ForeignKey(
+        Place,
+        on_delete=models.PROTECT,
+        related_name='observation',
+        verbose_name=_('place')
+    )
+    observer = models.ForeignKey(
+        User,
+        verbose_name=_('observer'),
+        on_delete=models.SET_NULL,
+        related_name='observation',
+        null=True, blank=True
+    )
+    photo = models.ImageField(
+        _('photo'),
+        upload_to='user_profile/observations',
+        null=True, blank=True
+    )
+
+    def __str__(self):
+        return f'{self.date} - {self.species} ({self.observer})'
+    
+    class Meta:
+        ordering = ['-date']
+        verbose_name=_('observation')
+        verbose_name_plural=_('observations')
+
+    # def save(self, *args, **kwargs):
+    #     super().save(*args, **kwargs)
+    #     photo = Image.open(self.photo.path)
+    #     if photo.height > 400 or photo.width > 400:
+    #         output_size = (400, 400)
+    #         photo.thumbnail(output_size)
+    #         photo.save(self.photo.path)
+    #         print('photo resized')

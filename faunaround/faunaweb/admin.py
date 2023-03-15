@@ -32,3 +32,4 @@ class PlaceAdmin(ImportExportModelAdmin):
 admin.site.register(models.AnimalClass, AnimalClassAdmin)
 admin.site.register(models.AnimalSpecies, AnimalSpeciesAdmin)
 admin.site.register(models.Place, PlaceAdmin)
+admin.site.register(models.Observation)
