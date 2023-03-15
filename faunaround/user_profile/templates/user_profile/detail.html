@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block title %}{{ object.user }} profile at {{ block.super }}{% endblock title %}
+{% block content %}
+<h1>User details</h1>
+<ul class="user-profile">
+    <li>
+        <div>
+            <img src="{{ object.photo.url }}" class="user-profile-img">
+        </div>
+    </li>
+    <li>
+        <div>
+            {% if object.user.first_name or object.user.last_name %}
+                <p>Full name: {{ object.user.first_name }} {{ object.user.last_name }}</p>
+            {% endif %}
+            {% if object.user == request.user %}
+            <p>Username: {{ object.user }}</p>
+            <p>Email: {{ object.user.email }}</p>
+            <p><a href="{% url 'profile_update' %}">Update your profile</a></p>
+        </div>
+    </li>
+</ul>
+{% endif %}
+{% endblock content %}

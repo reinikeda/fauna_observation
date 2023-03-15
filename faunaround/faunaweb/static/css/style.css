@@ -114,3 +114,20 @@ a:hover {
 .search {
     padding: 1rem;
 }
+.user-profile {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 5rem;
+    list-style-type: none;
+}
+.user-profile-img {
+    float: left;
+    border-radius: 50%;
+    border: 2px solid #064420;
+}
+.profile-form {
+    padding-inline-start: 0;
+    list-style-type: none;
+}
