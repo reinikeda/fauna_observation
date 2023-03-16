@@ -18,7 +18,7 @@
         <tr>
             <td>{{ observation.date }}</td>
             <td>{{ observation.species.class_id.class_national }} ({{ observation.species.class_id.class_scientific }})</td>
-            <td>{{ observation.species.species_national }} ({{ observation.species.species_scientific }})</td>
+            <td><a href="{% url 'species_detail' observation.species.pk %}">{{ observation.species.species_national }} ({{ observation.species.species_scientific }})</a></td>
             <td>{{ observation.count }}</td>
             <td>{{ observation.place }}</td>
             <td>{{ observation.observer }}</td>

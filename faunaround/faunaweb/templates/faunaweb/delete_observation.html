@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}{{ block.super }}{% endblock title %}
+{% block content %}
+<h1>Delete observation</h1>
+<div>
+    <p>Do you really want to delete this observation?</p>
+    <p>Date: {{ observation.date }}</p>
+    <p>Species: {{ observation.species }}</p>
+    <p>Count: {{ observation.count }}</p>
+    <p>Place: {{ observation.place }}</p>
+    <p>Photo:</p>
+    {% if observation.photo %}
+    <img src="{{ observation.photo.url }}" alt="Observation Photo">
+    {% else %}
+    <p>No photo available</p>
+    {% endif %}
+<div>
+<form method="POST">
+  {% csrf_token %}
+  <input type="submit" value="Delete">
+  <a href="{% url 'user_observations' %}">Cancel</a>
+</form>
+{% endblock content %}

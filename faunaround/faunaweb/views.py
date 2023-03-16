@@ -1,12 +1,12 @@
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q, Sum
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.views import generic
 from django.utils.translation import gettext_lazy as _
 import requests
 from bs4 import BeautifulSoup
 from . import models
-from .forms import NewObservationForm
+from .forms import NewObservationForm, EditObservationForm
 
 def index(request):
     return render(request, 'faunaweb/index.html')
@@ -85,3 +85,25 @@ def add_observation(request):
     else:
         form = NewObservationForm()
     return render(request, 'faunaweb/add_observation.html', {'form': form})
+
+@login_required
+def edit_observation(request, pk):
+    observation = get_object_or_404(models.Observation, pk=pk)
+    if request.method == 'POST':
+        form = EditObservationForm(request.POST, request.FILES, instance=observation)
+        if form.is_valid():
+            observation = form.save(commit=False)
+            observation.observer = request.user
+            observation.save()
+            return redirect('user_observations')
+    else:
+        form = EditObservationForm(instance=observation)
+    return render(request, 'faunaweb/edit_observation.html', {'form': form})
+
+@login_required
+def delete_observation(request, pk):
+    observation = get_object_or_404(models.Observation, pk=pk)
+    if request.method == 'POST':
+        observation.delete()
+        return redirect('user_observations')
+    return render(request, 'faunaweb/delete_observation.html', {'observation': observation})

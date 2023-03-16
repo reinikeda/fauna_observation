@@ -9,5 +9,7 @@ urlpatterns = [
      path('observations/', views.ObservationListView.as_view(), name='observations'),
      path('about/', views.about, name='about'),
      path('add_observation/', views.add_observation, name='add_observation'),
-     path('my_observations/', views.UserObservationListView.as_view(), name='user_observations')
+     path('edit_observation/<int:pk>/', views.edit_observation, name='edit_observation'),
+     path('delete_observation/<int:pk>/', views.delete_observation, name='delete_observation'),
+     path('my_observations/', views.UserObservationListView.as_view(), name='user_observations'),
 ]

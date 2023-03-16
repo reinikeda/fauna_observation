@@ -96,11 +96,11 @@ class Observation(models.Model):
         verbose_name=_('observation')
         verbose_name_plural=_('observations')
 
-    # def save(self, *args, **kwargs):
-    #     super().save(*args, **kwargs)
-    #     photo = Image.open(self.photo.path)
-    #     if photo.height > 400 or photo.width > 400:
-    #         output_size = (400, 400)
-    #         photo.thumbnail(output_size)
-    #         photo.save(self.photo.path)
-    #         print('photo resized')
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+        photo = Image.open(self.photo.path)
+        if photo.height > 400 or photo.width > 400:
+            output_size = (400, 400)
+            photo.thumbnail(output_size)
+            photo.save(self.photo.path)
+            print('photo resized')

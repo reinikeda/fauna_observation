@@ -2,7 +2,7 @@
 {% load static %}
 {% block title %}{{ block.super }}{% endblock title %}
 {% block content %}
-<h1>Observations</h1>
+<h1>My oservations</h1>
 {% if user_observation_list %}
 <table class="observation-table">
     <tr>
@@ -13,12 +13,13 @@
         <th>Place</th>
         <th>Observer</th>
         <th>Photo</th>
+        <th colspan="2">Edit or delete</th>
     </tr>
     {% for observation in user_observation_list %}
         <tr>
             <td>{{ observation.date }}</td>
             <td>{{ observation.species.class_id.class_national }} ({{ observation.species.class_id.class_scientific }})</td>
-            <td>{{ observation.species.species_national }} ({{ observation.species.species_scientific }})</td>
+            <td><a href="{% url 'species_detail' observation.species.pk %}">{{ observation.species.species_national }} ({{ observation.species.species_scientific }})</a></td>
             <td>{{ observation.count }}</td>
             <td>{{ observation.place }}</td>
             <td>{{ observation.observer }}</td>
@@ -29,6 +30,8 @@
                 <p>No image uploaded</p>
                 {% endif %}
             </td>
+            <td><a href="{% url 'edit_observation' pk=observation.pk %}">Edit</a></td>
+            <td><a href="{% url 'delete_observation' pk=observation.pk %}">Delete</a></td>
         </tr>
     {% endfor %}
 <table>
