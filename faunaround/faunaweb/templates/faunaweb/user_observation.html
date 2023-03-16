@@ -2,7 +2,8 @@
 {% load static %}
 {% block title %}{{ block.super }}{% endblock title %}
 {% block content %}
-<h1>My oservations</h1>
+<h1>My observations</h1>
+<h3>You already spotted {{ species_count }} of {{ total_species_count }} species</h3>
 {% if user_observation_list %}
 <table class="observation-table">
     <tr>

@@ -37,6 +37,11 @@ class AnimalSpeciesListView(generic.ListView):
     )
         return qs
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        current_animal_class = models.AnimalClass.objects.get(pk=self.kwargs['pk'])
+        context['current_animal_class'] = current_animal_class
+        return context
 
 class AnimalSpeciesDetailView(generic.DetailView):
     model = models.AnimalSpecies
@@ -72,6 +77,14 @@ class UserObservationListView(generic.ListView):
         qs = super().get_queryset()
         return qs.filter(observer=self.request.user)
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        user = self.request.user
+        species_count = models.Observation.objects.filter(observer=user).values('species').distinct().count()
+        total_species_count = models.AnimalSpecies.objects.count()
+        context['species_count'] = species_count
+        context['total_species_count'] = total_species_count
+        return context
 
 @login_required
 def add_observation(request):

@@ -45,6 +45,14 @@ class AnimalSpecies(models.Model):
     
     class Meta:
         ordering = ['order_scientific', 'species_scientific']
+        
+    def save(self, *args, **kwargs):
+        super().save(*args, **kwargs)
+        species_image = Image.open(self.species_image.path)
+        if species_image.height > 400 or species_image.width > 400:
+            output_size = (400, 400)
+            species_image.thumbnail(output_size)
+            species_image.save(self.species_image.path)
 
 
 class Place(models.Model):
@@ -103,4 +111,3 @@ class Observation(models.Model):
             output_size = (400, 400)
             photo.thumbnail(output_size)
             photo.save(self.photo.path)
-            print('photo resized')

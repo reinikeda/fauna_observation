@@ -2,7 +2,7 @@
 {% load static %}
 {% block title %}{{ block.super }}{% endblock title %}
 {% block content %}
-<h1>Current class</h1>
+<h1>{{ current_animal_class.class_scientific }} - {{ current_animal_class.class_en }} - {{ current_animal_class.class_national }}</h1>
 {% include 'faunaweb/includes/search.html' %}
 {% include 'faunaweb/includes/paginator_next.html' %}
 <div class="flex-main">
