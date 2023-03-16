@@ -8,4 +8,5 @@ urlpatterns = [
      path('species/<int:pk>/', views.AnimalSpeciesDetailView.as_view(), name='species_detail'),
      path('observations/', views.ObservationListView.as_view(), name='observations'),
      path('about/', views.about, name='about'),
+     path('add_observation/', views.add_observation, name='add_observation'),
 ]

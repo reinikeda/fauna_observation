@@ -1,8 +1,10 @@
+from django.contrib.auth.decorators import login_required
 from django.db.models import Q
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, redirect
 from django.views import generic
 from django.utils.translation import gettext_lazy as _
 from . import models
+from .forms import NewObservationForm
 
 def index(request):
     return render(request, 'faunaweb/index.html')
@@ -42,3 +44,17 @@ class AnimalSpeciesDetailView(generic.DetailView):
 class ObservationListView(generic.ListView):
     model = models.Observation
     template_name = 'faunaweb/observation.html'
+
+
+@login_required
+def add_observation(request):
+    if request.method == 'POST':
+        form = NewObservationForm(request.POST, request.FILES)
+        if form.is_valid():
+            observation = form.save(commit=False)
+            observation.observer = request.user
+            observation.save()
+            return redirect('observations')
+    else:
+        form = NewObservationForm()
+    return render(request, 'faunaweb/add_observation.html', {'form': form})

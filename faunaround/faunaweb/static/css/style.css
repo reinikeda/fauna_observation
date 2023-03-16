@@ -139,7 +139,14 @@ a:hover {
 .observation-table th {
     background-color: #9DC08B;
 }
+.observation-table tr:hover {
+    background-color: #E4EFE7;
+}
 .observation-table th, td {
     border: 1px solid #E4EFE7;
     padding: 1rem;
+}
+.observation-img {
+    max-width: 300px;
+    height: auto;
 }

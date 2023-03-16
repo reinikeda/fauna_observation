@@ -23,7 +23,7 @@
                 <li><a href="{% url 'about' %}">About Us</a></li>
                 {% if request.user.is_authenticated %}
                     <li class="user-menu"><a href="{% url 'profile_detail_active' %}">{{ request.user }}</a></li>
-                    <li>Add new observation</li>
+                    <li><a href="{% url 'add_observation' %}">Add new observation</a></li>
                     <li>My observations</li>
                     {% if request.user.is_superuser or request.user.is_staff %}
                         <li><a href="{% url 'admin:index' %}">Admin</a></li>

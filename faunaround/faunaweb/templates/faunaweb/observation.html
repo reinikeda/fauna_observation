@@ -24,7 +24,7 @@
             <td>{{ observation.observer }}</td>
             <td>
                 {% if observation.photo %}
-                <p>Show image here</p>
+                <img src="{{ observation.photo.url }}" class="observation-img">
                 {% else %}
                 <p>No image uploaded</p>
                 {% endif %}
