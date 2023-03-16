@@ -1,5 +1,5 @@
 from django.contrib.auth.decorators import login_required
-from django.db.models import Q
+from django.db.models import Q, Sum
 from django.shortcuts import render, redirect
 from django.views import generic
 from django.utils.translation import gettext_lazy as _
@@ -39,7 +39,13 @@ class AnimalSpeciesListView(generic.ListView):
 class AnimalSpeciesDetailView(generic.DetailView):
     model = models.AnimalSpecies
     template_name = 'faunaweb/species_detail.html'
-
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        species = self.object
+        count = species.observation.aggregate(Sum('count'))['count__sum']
+        context['observation_count'] = count or 0
+        return context
 
 class ObservationListView(generic.ListView):
     model = models.Observation

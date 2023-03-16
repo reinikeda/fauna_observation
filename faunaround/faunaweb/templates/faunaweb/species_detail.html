@@ -19,10 +19,12 @@
         {% endif %}
     </div>
     <div class="flex-species-box">
-        <p>Place for observations counter</p>
+        <p>Number of observations: {{ observation_count }}</p>
     </div>
+    {% if request.user.is_authenticated %}
     <div class="flex-species-box">
-        <p>Place for link to add new observation of current species</p>
+        <p>Click <a href="{% url 'add_observation' %}">here</a> to add new observation of this species.</p>
     </div>
+    {% endif %}
 </div>
 {% endblock content %}
