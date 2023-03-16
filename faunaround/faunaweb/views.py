@@ -3,6 +3,8 @@ from django.db.models import Q, Sum
 from django.shortcuts import render, redirect
 from django.views import generic
 from django.utils.translation import gettext_lazy as _
+import requests
+from bs4 import BeautifulSoup
 from . import models
 from .forms import NewObservationForm
 
@@ -39,12 +41,21 @@ class AnimalSpeciesListView(generic.ListView):
 class AnimalSpeciesDetailView(generic.DetailView):
     model = models.AnimalSpecies
     template_name = 'faunaweb/species_detail.html'
-    
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         species = self.object
+        url = 'https://en.wikipedia.org/wiki/' + species.species_en.replace(' ', '_')
+        response = requests.get(url=url)
+        soup = BeautifulSoup(response.content, 'html.parser')
+        p_tags = soup.find_all('p')
+        intro = '\n<br><br>\n'.join([p.get_text() for p in p_tags[:4] if p.get_text().strip()])
+        if not intro:
+            intro = "No species info yet"
         count = species.observation.aggregate(Sum('count'))['count__sum']
         context['observation_count'] = count or 0
+        context['intro'] = intro
+        context['wikipedia_url'] = url
         return context
 
 class ObservationListView(generic.ListView):

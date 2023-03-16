@@ -93,6 +93,9 @@ a:hover {
     width: 600px;
     height: auto;
 }
+.flex-species-box h2, h3 {
+    text-align: center;
+}
 .flex-species-box img {
     max-width: 500px;
     height: auto;
@@ -149,4 +152,7 @@ a:hover {
 .observation-img {
     max-width: 300px;
     height: auto;
+}
+.bold-text {
+    font-weight: bold;
 }
