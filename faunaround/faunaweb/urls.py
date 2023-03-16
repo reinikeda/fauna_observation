@@ -9,4 +9,5 @@ urlpatterns = [
      path('observations/', views.ObservationListView.as_view(), name='observations'),
      path('about/', views.about, name='about'),
      path('add_observation/', views.add_observation, name='add_observation'),
+     path('my_observations/', views.UserObservationListView.as_view(), name='user_observations')
 ]

@@ -46,6 +46,16 @@ class ObservationListView(generic.ListView):
     template_name = 'faunaweb/observation.html'
 
 
+class UserObservationListView(generic.ListView):
+    model = models.Observation
+    template_name = 'faunaweb/user_observation.html'
+    context_object_name = 'user_observation_list'
+
+    def get_queryset(self):
+        qs = super().get_queryset()
+        return qs.filter(observer=self.request.user)
+
+
 @login_required
 def add_observation(request):
     if request.method == 'POST':
