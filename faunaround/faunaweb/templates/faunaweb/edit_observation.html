@@ -5,8 +5,29 @@
 <h1>Edit observation</h1>
 <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
-    {{ form.as_p }}
+    <table class="form-table">
+        <tr>
+            <td><label for="{{ form.date.id_for_label }}">Date:</label></td>
+            <td>{{ form.date }}</td>
+        </tr>
+        <tr>
+            <td><label for="{{ form.species.id_for_label }}">Species:</label></td>
+            <td>{{ form.species }}</td>
+        </tr>
+        <tr>
+            <td><label for="{{ form.count.id_for_label }}">Count:</label></td>
+            <td>{{ form.count }}</td>
+        </tr>
+        <tr>
+            <td><label for="{{ form.place.id_for_label }}">Place:</label></td>
+            <td>{{ form.place }}</td>
+        </tr>
+        <tr>
+            <td><label for="{{ form.photo.id_for_label }}">Photo:</label></td>
+            <td>{{ form.photo }}</td>
+        </tr>
+    </table>
     {{ form.media }}
-    <button type="submit">Update information</button>
+    <button type="submit" class="form-button">Update information</button>
 </form>
 {% endblock content %}

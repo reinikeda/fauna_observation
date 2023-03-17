@@ -4,8 +4,28 @@
 <h1>Update your profile</h1>
 <form method="post" action="{{ request.path }}" enctype="multipart/form-data">
     {% csrf_token %}
-    {{ user_form.as_p }}
-    <ul class="profile-form">{{ profile_form.as_ul }}</ul>
-    <button type="submit">Update</button>
+    <table class="form-table">
+        <tr>
+            <td><label for="username">Username:</label></td>
+            <td>{{ user_form.username }}</td>
+        </tr>
+        <tr>
+            <td><label for="email">Email:</label></td>
+            <td>{{ user_form.email }}</td>
+        </tr>
+        <tr>
+            <td><label for="first_name">First name:</label></td>
+            <td>{{ user_form.first_name }}</td>
+        </tr>
+        <tr>
+            <td><label for="last_name">Last name:</label></td>
+            <td>{{ user_form.last_name }}</td>
+        </tr>
+        <tr>
+            <td><label for="photo">Profile photo:</label></td>
+            <td>{{ profile_form.photo }}</td>
+        </tr>
+    </table>
+    <button type="submit" class="form-button">Update</button>
 </form>
 {% endblock content %}

@@ -33,6 +33,7 @@ footer {
     background-color: #E4EFE7;
     text-align: center;
     font-weight: bold;
+    font-size: 16px;
     border-top: 1px solid #064420;
 }
 a {
@@ -50,6 +51,7 @@ a:hover {
     padding-left: 1rem;
     padding-right: 1rem;
     font-weight: bold;
+    font-size: 16px;
 }
 .user-menu {
     flex-grow: 1;
@@ -161,4 +163,13 @@ a:hover {
 }
 .bold-text {
     font-weight: bold;
+}
+.form-table td {
+    border: none;
+}
+.form-button {
+    margin: 1rem;
+    background-color: #E4EFE7;
+    border-radius: 10px;
+    border: 1px solid #064420;
 }
