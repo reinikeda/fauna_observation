@@ -67,6 +67,17 @@ class ObservationListView(generic.ListView):
     model = models.Observation
     template_name = 'faunaweb/observation.html'
 
+    def get_queryset(self):
+        qs = super().get_queryset()
+        query = self.request.GET.get('search')
+        if query:
+            qs = qs.filter(
+            Q(species__species_scientific__icontains=query) |
+            Q(species__species_en__icontains=query) |
+            Q(species__species_national__icontains=query)
+    )
+        return qs
+
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         species_count = models.Observation.objects.values('species').distinct().count()
@@ -76,6 +87,7 @@ class ObservationListView(generic.ListView):
         context['total_species_count'] = total_species_count
         context['entries_count'] = entries_count
         return context
+
     
 class UserObservationListView(generic.ListView):
     model = models.Observation
@@ -84,7 +96,15 @@ class UserObservationListView(generic.ListView):
 
     def get_queryset(self):
         qs = super().get_queryset()
-        return qs.filter(observer=self.request.user)
+        qs = qs.filter(observer=self.request.user)
+        query = self.request.GET.get('search')
+        if query:
+            qs = qs.filter(
+            Q(species__species_scientific__icontains=query) |
+            Q(species__species_en__icontains=query) |
+            Q(species__species_national__icontains=query)
+    )
+        return qs
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

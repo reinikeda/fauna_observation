@@ -3,8 +3,9 @@
 {% block title %}{{ block.super }}{% endblock title %}
 {% block content %}
 <h1>Observations</h1>
-<h3>All observers already spotted {{ species_count }} of {{ total_species_count }} species</h3>
 {% if observation_list %}
+{% include 'faunaweb/includes/search.html' %}
+<h3>All observers already spotted {{ species_count }} of {{ total_species_count }} species</h3>
 <table class="observation-table">
     <tr>
         <th>Date</th>
@@ -22,7 +23,13 @@
             <td><a href="{% url 'species_detail' observation.species.pk %}">{{ observation.species.species_national }} ({{ observation.species.species_scientific }})</a></td>
             <td>{{ observation.count }}</td>
             <td>{{ observation.place }}</td>
-            <td>{{ observation.observer }}</td>
+            <td>
+                {% if observation.observer.first_name and observation.observer.last_name %}
+                    {{ observation.observer.first_name }} {{ observation.observer.last_name }}
+                {% else %}
+                    {{ observation.observer }}
+                {% endif %}
+            </td>
             <td>
                 {% if observation.photo %}
                 <img src="{{ observation.photo.url }}" class="observation-img">
