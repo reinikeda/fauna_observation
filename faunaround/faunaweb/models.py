@@ -106,8 +106,9 @@ class Observation(models.Model):
 
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
-        photo = Image.open(self.photo.path)
-        if photo.height > 400 or photo.width > 400:
-            output_size = (400, 400)
-            photo.thumbnail(output_size)
-            photo.save(self.photo.path)
+        if self.photo:
+            photo = Image.open(self.photo.path)
+            if photo.height > 400 or photo.width > 400:
+                output_size = (400, 400)
+                photo.thumbnail(output_size)
+                photo.save(self.photo.path)

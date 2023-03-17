@@ -36,7 +36,8 @@
         </tr>
     {% endfor %}
 <table>
-{% else %}
+<div class="total-entries">Total entries: {{ entries_count }}</div>
+    {% else %}
     <p>No observations yet</p>
 {% endif %}
 {% endblock content %}

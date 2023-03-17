@@ -151,6 +151,10 @@ a:hover {
     border: 1px solid #E4EFE7;
     padding: 1rem;
 }
+.total-entries {
+    width: 100%;
+    text-align: right;
+}
 .observation-img {
     max-width: 300px;
     height: auto;
