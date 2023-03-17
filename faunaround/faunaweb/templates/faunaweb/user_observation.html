@@ -35,9 +35,9 @@
             <td><a href="{% url 'delete_observation' pk=observation.pk %}">Delete</a></td>
         </tr>
     {% endfor %}
-<table>
+</table>
 <div class="total-entries">Total entries: {{ entries_count }}</div>
-    {% else %}
+{% else %}
     <p>No observations yet</p>
 {% endif %}
 {% endblock content %}
