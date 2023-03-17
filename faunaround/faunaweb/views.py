@@ -65,6 +65,7 @@ class AnimalSpeciesDetailView(generic.DetailView):
 
 class ObservationListView(generic.ListView):
     model = models.Observation
+    paginate_by = 20
     template_name = 'faunaweb/observation.html'
 
     def get_queryset(self):
@@ -74,8 +75,10 @@ class ObservationListView(generic.ListView):
             qs = qs.filter(
             Q(species__species_scientific__icontains=query) |
             Q(species__species_en__icontains=query) |
-            Q(species__species_national__icontains=query)
-    )
+            Q(species__species_national__icontains=query) |
+            Q(place__place_national__icontains=query) |
+            Q(date__icontains=query)
+        )
         return qs
 
     def get_context_data(self, **kwargs):
@@ -91,6 +94,7 @@ class ObservationListView(generic.ListView):
     
 class UserObservationListView(generic.ListView):
     model = models.Observation
+    paginate_by = 20
     template_name = 'faunaweb/user_observation.html'
     context_object_name = 'user_observation_list'
 
@@ -102,8 +106,10 @@ class UserObservationListView(generic.ListView):
             qs = qs.filter(
             Q(species__species_scientific__icontains=query) |
             Q(species__species_en__icontains=query) |
-            Q(species__species_national__icontains=query)
-    )
+            Q(species__species_national__icontains=query) |
+            Q(place__place_national__icontains=query) |
+            Q(date__icontains=query)
+        )
         return qs
 
     def get_context_data(self, **kwargs):

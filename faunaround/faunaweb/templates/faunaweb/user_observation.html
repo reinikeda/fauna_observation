@@ -5,6 +5,7 @@
 <h1>My observations</h1>
 {% if user_observation_list %}
 {% include 'faunaweb/includes/search.html' %}
+{% include 'faunaweb/includes/paginator_next.html' %}
 <h3>You already spotted {{ species_count }} of {{ total_species_count }} species</h3>
 <table class="observation-table">
     <tr>
