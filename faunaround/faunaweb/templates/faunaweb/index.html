@@ -3,7 +3,16 @@
 {% block content %}
 <div class="flex-main">
     <div class="flex-main-box">
-        <p>Random species info. NO INFORMATION YET.</p>
+        {% if random_species %}
+            <h4><a href="{% url 'species_detail' random_species.pk %}">{{ random_species.species_national }} ({{ random_species.species_scientific }})</a></h4>
+            {% if random_species.photo %}
+                <img src="{{ random_species.photo.url }}" alt="{{ random_species.species_scientific }}">
+            {% else %}
+                <p>Sorry, no photo available</p>
+            {% endif %}
+        {% else %}
+            <p>Sorry, no random species found</p>
+        {% endif %}
     </div>
     <div class="flex-main-box">
         <p>Welcome to FAUNAround! This is the best place to record your fauna observations. In our database you can find XX different species.</p>
@@ -13,10 +22,25 @@
         <p>Some diagram (top species or other). NO INFORMATION YET.</p>
     </div>
     <div class="flex-main-box">
-        <p>TOP 10 registered species. NO INFORMATION YET.</p>
+        {% if top_species %}
+            <h4>TOP registered species</h4>
+            {% for observation in top_species %}
+                {% comment %} <p>{{ observation.species__species_national }} ({{ observation.species__species_scientific }}) - {{ observation.species_count }} time(s)</p> {% endcomment %}
+                <p><a href="{% url 'species_detail' observation.species__pk %}">{{ observation.species__species_national }} ({{ observation.species__species_scientific }})</a> - {{ observation.species_count }} time(s)</p>
+            {% endfor %}
+        {% else %}
+            <p>No species observations were registered.</p>
+        {% endif %}
     </div>
     <div class="flex-main-box">
-        <p>Latest 5 observations. NO INFORMATION YET.</p>
+        {% if latest_observations %}
+            <h4>Latest observations</h4>
+            {% for observation in latest_observations %}
+                <p>{{ observation.date }} - <a href="{% url 'species_detail' observation.species.pk %}">{{ observation.species.species_national }} ({{ observation.species.species_scientific }})</a></p>
+            {% endfor %}
+        {% else %}
+            <p>No species observations were registered.</p>
+        {% endif %}
     </div>
     <div class="flex-main-box">
         <p>Some diagram (top classes or other). NO INFORMATION YET.</p>

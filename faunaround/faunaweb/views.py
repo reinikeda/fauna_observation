@@ -1,18 +1,32 @@
 from django.contrib.auth.decorators import login_required
-from django.db.models import Q, Sum
+from django.db.models import Q, Sum, Count
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views import generic
 from django.utils.translation import gettext_lazy as _
 import requests
+import random
 from bs4 import BeautifulSoup
 from . import models
 from .forms import ObservationForm
 
-def index(request):
-    return render(request, 'faunaweb/index.html')
 
 def about(request):
     return render(request, 'faunaweb/about.html')
+
+class IndexView(generic.TemplateView):
+    template_name = 'faunaweb/index.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        latest_observations = models.Observation.objects.order_by('-date')[:7]
+        top_species = models.Observation.objects.select_related('species').values('species', 'species__pk', 'species__species_national', 'species__species_scientific').annotate(species_count=Count('species')).order_by('-species_count')[:7]
+        species_count = models.AnimalSpecies.objects.count()
+        random_index = random.randint(0, species_count - 1)
+        random_species = models.AnimalSpecies.objects.all()[random_index]
+        context['latest_observations'] = latest_observations
+        context['top_species'] = top_species
+        context['random_species'] = random_species
+        return context
 
 class AnimalClassListView(generic.ListView):
     model = models.AnimalClass
