@@ -22,6 +22,9 @@ header {
     padding: 1rem;
 }
 nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     width: 100%;
     background-color: #E4EFE7;
     border-bottom: 1px solid #064420;
@@ -56,17 +59,25 @@ a:hover {
 .flex-menu {
     display: flex;
     flex-direction: row;
+    justify-content: flex-start;
     gap: 15px;
-    list-style-type: none;
     margin: 0;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    font-weight: bold;
+    list-style-type: none;
     font-size: 16px;
+    font-weight: bold;
+    width: 100%;
 }
-.user-menu {
-    flex-grow: 1;
-    text-align: right;
+.flex-menu-user {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: 15px;
+    margin: 0;
+    padding-right: 2rem;
+    list-style-type: none;
+    font-size: 16px;
+    font-weight: bold;
+    width: 100%;
 }
 .flex-main {
     display: flex;

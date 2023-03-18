@@ -25,8 +25,10 @@
                 <li><a href="{% url 'observations' %}">Observations</a></li>
                 <li>Analytics</li>
                 <li><a href="{% url 'about' %}">About Us</a></li>
+            </ul>
+            <ul class="flex-menu-user">
                 {% if request.user.is_authenticated %}
-                    <li class="user-menu"><a href="{% url 'profile_detail_active' %}">{{ request.user }}</a></li>
+                    <li><a href="{% url 'profile_detail_active' %}">{{ request.user }}</a></li>
                     <li><a href="{% url 'add_observation' %}">Add new observation</a></li>
                     <li><a href="{% url 'user_observations' %}">My observations</a></li>
                     {% if request.user.is_superuser or request.user.is_staff %}
@@ -34,7 +36,7 @@
                     {% endif %}
                     <li><a href="{% url 'logout' %}">Log out</a></li>
                 {% else %}
-                    <li class="user-menu"><a href="{% url 'login' %}{% if request.path != '/accounts/logout/' %}?next={{ request.path }}{% endif %}">Log in</a></li>
+                    <li><a href="{% url 'login' %}{% if request.path != '/accounts/logout/' %}?next={{ request.path }}{% endif %}">Log in</a></li>
                     <li><a href="{% url 'register' %}">Sign up</a></li>
                 {% endif %}
             </ul>
