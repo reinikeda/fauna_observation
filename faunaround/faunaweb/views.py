@@ -1,5 +1,6 @@
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q, Sum, Count
+from django.db.models.functions import TruncMonth
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views import generic
 from django.utils.translation import gettext_lazy as _
@@ -136,6 +137,50 @@ class UserObservationListView(generic.ListView):
         context['entries_count'] = entries_count
         return context
 
+
+class DataAnalysisView(generic.TemplateView):
+    template_name = 'faunaweb/data_analysis.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+
+        animal_class_counts = models.AnimalClass.objects.annotate(species_count=Count('species'))
+        animal_class_labels = [animal_class.class_scientific for animal_class in animal_class_counts]
+        animal_class_data = [animal_class.species_count for animal_class in animal_class_counts]
+        context['animal_class_labels'] = animal_class_labels
+        context['animal_class_data'] = animal_class_data
+
+        observation_places_counts = models.Place.objects.annotate(observation_count=Count('observation')).order_by('-observation_count')[:10]
+        places_labels = [observation_place.place_national for observation_place in observation_places_counts]
+        places_data = [observation_place.observation_count for observation_place in observation_places_counts]
+        context['places_labels'] = places_labels
+        context['places_data'] = places_data
+
+        species_counts = models.AnimalSpecies.objects.annotate(count=Count('observation')).order_by('-count')[:10]
+        species_labels = [species_count.species_national for species_count in species_counts]
+        species_data = [species_count.count for species_count in species_counts]
+        context['species_labels'] = species_labels
+        context['species_data'] = species_data
+
+        observation_counts = models.Observation.objects.annotate(month=TruncMonth('date')).values('month').annotate(count=Count('id'))
+        month_labels = [count['month'].strftime('%B %Y') for count in observation_counts]
+        month_data = [count['count'] for count in observation_counts]
+        context['month_labels'] = month_labels
+        context['month_data'] = month_data
+
+        return context
+
+
+class AboutView(generic.TemplateView):
+    template_name = 'faunaweb/about.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        about = models.Content.objects.get(id=2)
+        context['about'] = about
+        return context
+    
+
 @login_required
 def add_observation(request):
     if request.method == 'POST':
@@ -170,13 +215,3 @@ def delete_observation(request, pk):
         observation.delete()
         return redirect('user_observations')
     return render(request, 'faunaweb/delete_observation.html', {'observation': observation})
-
-
-class AboutView(generic.TemplateView):
-    template_name = 'faunaweb/about.html'
-
-    def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        about = models.Content.objects.get(id=2)
-        context['about'] = about
-        return context

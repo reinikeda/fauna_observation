@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}{{ block.super }}{% endblock title %}
+{% block content %}
+<h1>Observations data analysis</h1>
+<div class="flex-main">
+  <div class="flex-chart-box">
+    <h3>Number of animal species in our database</h3>
+    <canvas id="species-chart">Your browser does not support the canvas element</canvas>
+    <script>{% include 'faunaweb/includes/animal_classes.js' %}</script>
+  </div>
+  <div class="flex-chart-box">
+    <h3>Observations count by month</h3>
+    <canvas id="observation-month-chart">Your browser does not support the canvas element</canvas>
+    <script>{% include 'faunaweb/includes/month_count.js' %}</script>
+  </div>
+  <div class="flex-chart-box">
+    <h3>TOP 10 observation places</h3>
+    <canvas id="observation-places-chart">Your browser does not support the canvas element</canvas>
+    <script>{% include 'faunaweb/includes/places.js' %}</script>
+  </div>
+  <div class="flex-chart-box">
+    <h3>TOP 10 observation species</h3>
+    <canvas id="observation-species-chart">Your browser does not support the canvas element</canvas>
+    <script>{% include 'faunaweb/includes/species_count.js' %}</script>
+  </div>
+</div>
+{% endblock content %}

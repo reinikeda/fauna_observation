@@ -11,6 +11,7 @@
         <title>{% block title %}FAUNAround{% endblock title %}</title>
         <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         <script src="{% static 'js/jquery.js' %}"></script>
     </head>
     <body>
@@ -23,7 +24,7 @@
                 <li><a href="{% url 'index' %}">HOME</a></li>
                 <li><a href="{% url 'all_classes' %}">Animal Classes</a></li>
                 <li><a href="{% url 'observations' %}">Observations</a></li>
-                <li>Analytics</li>
+                <li><a href="{% url 'data_analysis' %}">Analytics</a></li>
                 <li><a href="{% url 'about' %}">About Us</a></li>
             </ul>
             <ul class="flex-menu-user">

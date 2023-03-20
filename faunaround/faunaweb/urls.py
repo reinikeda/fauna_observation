@@ -7,6 +7,7 @@ urlpatterns = [
      path('animal_classes/<int:pk>/', views.AnimalSpeciesListView.as_view(), name='species_list'),
      path('species/<int:pk>/', views.AnimalSpeciesDetailView.as_view(), name='species_detail'),
      path('observations/', views.ObservationListView.as_view(), name='observations'),
+     path('animals_data/', views.DataAnalysisView.as_view(), name='data_analysis'),
      path('about/', views.AboutView.as_view(), name='about'),
      path('add_observation/', views.add_observation, name='add_observation'),
      path('edit_observation/<int:pk>/', views.edit_observation, name='edit_observation'),

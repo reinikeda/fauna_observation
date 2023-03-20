@@ -6,8 +6,8 @@
     <div class="flex-main-box">
         {% if random_species %}
             <h4><a href="{% url 'species_detail' random_species.pk %}">{{ random_species.species_national }} ({{ random_species.species_scientific }})</a></h4>
-            {% if random_species.photo %}
-                <img src="{{ random_species.photo.url }}" alt="{{ random_species.species_scientific }}">
+            {% if random_species.species_image %}
+                <img src="{{ random_species.species_image.url }}" alt="{{ random_species.species_scientific }}">
             {% else %}
                 <img src="{% static 'img/default.png' %}">
             {% endif %}
@@ -17,8 +17,6 @@
     </div>
     <div class="flex-main-box">
         <p>{{ welcome|safe }}</p>
-        {% comment %} <p>Welcome to FAUNAround! This is the best place to record your fauna observations. In our database you can find XX different species.</p>
-        <p>Feel free to register and add your first observation! Just click here.</p> {% endcomment %}
     </div>
     <div class="flex-main-box">
         <p>Some diagram (top species or other). NO INFORMATION YET.</p>
@@ -27,7 +25,6 @@
         {% if top_species %}
             <h4>TOP registered species</h4>
             {% for observation in top_species %}
-                {% comment %} <p>{{ observation.species__species_national }} ({{ observation.species__species_scientific }}) - {{ observation.species_count }} time(s)</p> {% endcomment %}
                 <p><a href="{% url 'species_detail' observation.species__pk %}">{{ observation.species__species_national }} ({{ observation.species__species_scientific }})</a> - {{ observation.species_count }} time(s)</p>
             {% endfor %}
         {% else %}
