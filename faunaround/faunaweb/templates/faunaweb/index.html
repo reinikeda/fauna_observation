@@ -16,8 +16,9 @@
         {% endif %}
     </div>
     <div class="flex-main-box">
-        <p>Welcome to FAUNAround! This is the best place to record your fauna observations. In our database you can find XX different species.</p>
-        <p>Feel free to register and add your first observation! Just click here.</p>
+        <p>{{ welcome|safe }}</p>
+        {% comment %} <p>Welcome to FAUNAround! This is the best place to record your fauna observations. In our database you can find XX different species.</p>
+        <p>Feel free to register and add your first observation! Just click here.</p> {% endcomment %}
     </div>
     <div class="flex-main-box">
         <p>Some diagram (top species or other). NO INFORMATION YET.</p>

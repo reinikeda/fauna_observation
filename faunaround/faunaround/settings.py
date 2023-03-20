@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'bootstrap_datepicker_plus',
     'bootstrap4',
     'jquery',
+    'tinymce',
     'django_select2',
     'django.contrib.admin',
     'django.contrib.auth',

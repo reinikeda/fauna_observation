@@ -10,9 +10,6 @@ from . import models
 from .forms import ObservationForm
 
 
-def about(request):
-    return render(request, 'faunaweb/about.html')
-
 class IndexView(generic.TemplateView):
     template_name = 'faunaweb/index.html'
 
@@ -23,9 +20,11 @@ class IndexView(generic.TemplateView):
         species_count = models.AnimalSpecies.objects.count()
         random_index = random.randint(0, species_count - 1)
         random_species = models.AnimalSpecies.objects.all()[random_index]
+        welcome = models.Content.objects.get(id=1)
         context['latest_observations'] = latest_observations
         context['top_species'] = top_species
         context['random_species'] = random_species
+        context['welcome'] = welcome
         return context
 
 class AnimalClassListView(generic.ListView):
@@ -171,3 +170,13 @@ def delete_observation(request, pk):
         observation.delete()
         return redirect('user_observations')
     return render(request, 'faunaweb/delete_observation.html', {'observation': observation})
+
+
+class AboutView(generic.TemplateView):
+    template_name = 'faunaweb/about.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        about = models.Content.objects.get(id=2)
+        context['about'] = about
+        return context
