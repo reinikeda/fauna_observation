@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-21 14:00+0200\n"
+"POT-Creation-Date: 2023-03-21 15:37+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,6 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n % 10 == 1 && (n % 100 > 19 || n % 100 < "
 "11) ? 0 : (n % 10 >= 2 && n % 10 <=9) && (n % 100 > 19 || n % 100 < 11) ? "
 "1 : n % 1 != 0 ? 2: 3);\n"
+
 #: .\faunaweb\admin.py:17
 msgid "Class"
 msgstr "Klasė"
@@ -167,8 +168,12 @@ msgid "observations"
 msgstr "stebėjimai"
 
 #: .\faunaweb\models.py:119
-msgid "content"
-msgstr "turinys"
+msgid "content english"
+msgstr "turinys angliškai"
+
+#: .\faunaweb\models.py:120
+msgid "content national"
+msgstr "turinys nacionaline kalba"
 
 #: .\faunaweb\templates\base.html:22
 msgid "best place to record your fauna observations"

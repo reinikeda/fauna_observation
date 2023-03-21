@@ -116,7 +116,9 @@ class Observation(models.Model):
 
 
 class Content(models.Model):
-    content = HTMLField(_('content'), max_length=4000, null=True, blank=True)
+    content_en = HTMLField(_('content english'), max_length=4000, null=True, blank=True)
+    content_national = HTMLField(_('content national'), max_length=4000, null=True, blank=True)
+    
 
     def __str__(self):
-        return self.content
+        return self.content_national

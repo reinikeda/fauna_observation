@@ -4,6 +4,7 @@ from django.db.models import Q, Sum, Count
 from django.db.models.functions import TruncMonth
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views import generic
+from django.utils.translation import get_language
 from django.utils.translation import gettext_lazy as _
 import requests
 import random
@@ -22,11 +23,17 @@ class IndexView(generic.TemplateView):
         species_count = models.AnimalSpecies.objects.count()
         random_index = random.randint(0, species_count - 1)
         random_species = models.AnimalSpecies.objects.all()[random_index]
-        welcome = models.Content.objects.get(id=1)
+        welcome = models.Content.objects.get(id=3)
+        language = get_language()
         context['latest_observations'] = latest_observations
         context['top_species'] = top_species
         context['random_species'] = random_species
         context['welcome'] = welcome
+        if language == 'lt' and welcome.content_national:
+            context['welcome'] = welcome.content_national
+        else:
+            context['welcome'] = welcome.content_en
+
         return context
 
 class AnimalClassListView(generic.ListView):
@@ -222,8 +229,13 @@ class AboutView(generic.TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        about = models.Content.objects.get(id=2)
-        context['about'] = about
+        about = models.Content.objects.get(id=4)
+        language = get_language()
+        if language == 'lt' and about.content_national:
+            context['about'] = about.content_national
+        else:
+            context['about'] = about.content_en
+
         return context
     
 
