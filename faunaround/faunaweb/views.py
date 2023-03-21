@@ -1,3 +1,4 @@
+from datetime import datetime, timedelta
 from django.contrib.auth.decorators import login_required
 from django.db.models import Q, Sum, Count
 from django.db.models.functions import TruncMonth
@@ -171,7 +172,9 @@ class DataAnalysisView(generic.TemplateView):
         context['species_data'] = species_data
 
         # month_count.js
-        observation_counts = models.Observation.objects.annotate(month=TruncMonth('date')).values('month').annotate(count=Count('id'))
+        today = datetime.now()
+        start_date = today - timedelta(days=365)
+        observation_counts = models.Observation.objects.filter(date__gte=start_date).annotate(month=TruncMonth('date')).values('month').annotate(count=Count('id'))
         month_labels = [count['month'].strftime('%B %Y') for count in observation_counts]
         month_data = [count['count'] for count in observation_counts]
         context['month_labels'] = month_labels
