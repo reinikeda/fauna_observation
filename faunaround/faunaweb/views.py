@@ -88,6 +88,9 @@ class ObservationListView(generic.ListView):
         query = self.request.GET.get('search')
         if query:
             qs = qs.filter(
+            Q(species__class_id__class_scientific__icontains=query) |
+            Q(species__class_id__class_en__icontains=query) |
+            Q(species__class_id__class_national__icontains=query) |            
             Q(species__species_scientific__icontains=query) |
             Q(species__species_en__icontains=query) |
             Q(species__species_national__icontains=query) |
@@ -119,6 +122,9 @@ class UserObservationListView(generic.ListView):
         query = self.request.GET.get('search')
         if query:
             qs = qs.filter(
+            Q(species__class_id__class_scientific__icontains=query) |
+            Q(species__class_id__class_en__icontains=query) |
+            Q(species__class_id__class_national__icontains=query) |            
             Q(species__species_scientific__icontains=query) |
             Q(species__species_en__icontains=query) |
             Q(species__species_national__icontains=query) |
