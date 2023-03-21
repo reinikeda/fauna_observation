@@ -1,32 +1,33 @@
 {% extends 'base.html' %}
-{% block title %}Sign up to {{ block.super }}{% endblock title %}
+{% load i18n %}
+{% block title %}{% trans 'sign up to'|capfirst %} {{ block.super }}{% endblock title %}
 {% block content %}
-<h1>Member registration</h1>
+<h1>{% trans 'member registration'|capfirst %}</h1>
 <form method="post" action="{{ request.path }}">
     {% csrf_token %}
     <table class="form-table">
         <tr>
-            <td><label for="username">Username:</label></td>
+            <td><label for="username">{% trans 'username'|capfirst %}:</label></td>
             <td><input type="text" name="username" value="{{ request.POST.username }}">
-                <small>(up to 100 symbols)</small>
+                <small>({% trans 'up to 100 symbols'|lower %})</small>
             </td>
         </tr>
         <tr>
-            <td><label for="email">Email:</label></td>
+            <td><label for="email">{% trans 'email'|capfirst %}:</label></td>
             <td><input type="email" name="email" value="{{ request.POST.email }}"></td>
             <td></td>
         </tr>
         <tr>
-            <td><label for="password1">Password:</label></td>
+            <td><label for="password1">{% trans 'password'|capfirst %}:</label></td>
             <td><input type="password" name="password1">
-                <small>(minimum 8 symbols and cannot be only numbers, or match any part of username)</small>
+                <small>({% trans 'minimum 8 symbols and cannot be only numbers, or match any part of username'|lower %})</small>
             </td>
         </tr>
         <tr>
-            <td><label for="password2">Confirm password:</label></td>
+            <td><label for="password2">{% trans 'confirm password'|capfirst %}:</label></td>
             <td><input type="password" name="password2"></td>
         </tr>
     </table>
-    <button type="submit" class="form-button">Sign up</button></p>
+    <button type="submit" class="form-button">{% trans 'sign up'|capfirst %}</button></p>
 </form>
 {% endblock content %}

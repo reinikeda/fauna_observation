@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load static %}
+{% load static i18n %}
 {% block title %}{{ block.super }}{% endblock title %}
 {% block content %}
 <h1>{{ current_animal_class.class_national }} ({{ current_animal_class.class_scientific }})</h1>
@@ -21,7 +21,7 @@
             </a>
         {% endfor %}
     {% else %}
-        <p>No animal classes uploaded to database</p>
+        <p>{% trans 'no animal classes uploaded to database'|capfirst %}</p>
     {% endif %}
 </div>
 {% include 'faunaweb/includes/paginator_pages.html' %}

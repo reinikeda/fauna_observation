@@ -1,12 +1,10 @@
 {% extends 'base.html' %}
-{% block title %}About {{ block.super }}{% endblock title %}
+{% load static i18n %}
+{% block title %}{% trans 'about'|capfirst %} {{ block.super }}{% endblock title %}
 {% block content %}
 <div class="flex-main">
     <div class="flex-about-box">
         <p>{{ about|safe }}</p>
-    </div>
-    <div class="flex-about-box">
-        <p>Contact form</p>
     </div>
 </div>
 {% endblock content %}

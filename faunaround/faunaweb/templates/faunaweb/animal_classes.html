@@ -1,8 +1,8 @@
 {% extends 'base.html' %}
-{% load static %}
-{% block title %}Welcome to {{ block.super }}{% endblock title %}
+{% load static i18n %}
+{% block title %}{{ block.super }}{% endblock title %}
 {% block content %}
-<h1>Animal classes</h1>
+<h1>{% trans 'animal classes'|capfirst %}</h1>
 <div class="flex-main">
     {% if animalclass_list %}
         {% for class in animalclass_list %}
@@ -19,7 +19,7 @@
         </a>
         {% endfor %}
     {% else %}
-    <p>No animal classes uploaded to database</p>
+    <p>{% trans 'no animal classes uploaded to database'|capfirst %}</p>
     {% endif %}
 </div>
 {% endblock content %}

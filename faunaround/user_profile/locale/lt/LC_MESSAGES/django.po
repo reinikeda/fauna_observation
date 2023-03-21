@@ -1,0 +1,226 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-03-21 14:00+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n % 10 == 1 && (n % 100 > 19 || n % 100 < "
+"11) ? 0 : (n % 10 >= 2 && n % 10 <=9) && (n % 100 > 19 || n % 100 < 11) ? "
+"1 : n % 1 != 0 ? 2: 3);\n"
+#: .\user_profile\apps.py:8
+msgid "user profile"
+msgstr "vartotojo profilis"
+
+#: .\user_profile\models.py:9
+msgid "user"
+msgstr "vartotojas"
+
+#: .\user_profile\models.py:15
+msgid "photo"
+msgstr "nuotrauka"
+
+#: .\user_profile\models.py:24
+msgid "profile"
+msgstr "profilis"
+
+#: .\user_profile\models.py:25
+msgid "profiles"
+msgstr "profiliai"
+
+#: .\user_profile\templates\registration\logged_out.html:3
+msgid "logged out from"
+msgstr "išsiregistruota iš"
+
+#: .\user_profile\templates\registration\logged_out.html:5
+msgid "logged out succesfully"
+msgstr "išsiregistruota sėkmingai"
+
+#: .\user_profile\templates\registration\logged_out.html:6
+msgid "log in again"
+msgstr "prisijungti vėl"
+
+#: .\user_profile\templates\registration\login.html:3
+msgid "log into"
+msgstr "prisijungta į"
+
+#: .\user_profile\templates\registration\login.html:5
+#: .\user_profile\templates\registration\login.html:21
+#: .\user_profile\templates\registration\password_reset_complete.html:6
+msgid "log in"
+msgstr "prisijungti"
+
+#: .\user_profile\templates\registration\login.html:7
+msgid "error while logging in"
+msgstr "klaida bandant prisijungti"
+
+#: .\user_profile\templates\registration\login.html:7
+#: .\user_profile\templates\registration\password_reset_confirm.html:7
+#: .\user_profile\templates\registration\password_reset_form.html:7
+msgid "please try again"
+msgstr "prašau pabandyti dar kartą"
+
+#: .\user_profile\templates\registration\login.html:13
+#: .\user_profile\templates\user_profile\detail.html:18
+#: .\user_profile\templates\user_profile\register.html:10
+#: .\user_profile\templates\user_profile\update.html:9
+msgid "username"
+msgstr "vartotojo vardas"
+
+#: .\user_profile\templates\registration\login.html:17
+#: .\user_profile\templates\user_profile\register.html:21
+msgid "password"
+msgstr "slaptažodis"
+
+#: .\user_profile\templates\registration\login.html:23
+msgid "forgot password"
+msgstr "pamiršote slaptažodį"
+
+#: .\user_profile\templates\registration\password_reset_complete.html:3
+msgid "password reset complete for"
+msgstr "slaptažodžio atstatymas baigas"
+
+#: .\user_profile\templates\registration\password_reset_complete.html:5
+msgid "password reset successful"
+msgstr "slaptažodžio atstatymas sėkmingas"
+
+#: .\user_profile\templates\registration\password_reset_complete.html:6
+msgid "you can now"
+msgstr "dabar galite"
+
+#: .\user_profile\templates\registration\password_reset_confirm.html:3
+msgid "reset password for"
+msgstr "atstatyti slaptodį"
+
+#: .\user_profile\templates\registration\password_reset_confirm.html:5
+#: .\user_profile\templates\registration\password_reset_form.html:5
+msgid "password reset"
+msgstr "slaptažodžio atstatymas"
+
+#: .\user_profile\templates\registration\password_reset_confirm.html:7
+#: .\user_profile\templates\registration\password_reset_form.html:7
+msgid "error while trying to reset your password"
+msgstr "klaida bandant atstatyti jūsų slaptažodį"
+
+#: .\user_profile\templates\registration\password_reset_confirm.html:12
+#: .\user_profile\templates\registration\password_reset_form.html:17
+msgid "reset password"
+msgstr "atstatyti slaptažodį"
+
+#: .\user_profile\templates\registration\password_reset_done.html:3
+msgid "email sent from"
+msgstr "el. laiškas išsiųstas iš"
+
+#: .\user_profile\templates\registration\password_reset_done.html:5
+msgid "password reset sent"
+msgstr "slaptažodžio atstatymas išsiųstas"
+
+#: .\user_profile\templates\registration\password_reset_done.html:6
+msgid "we have sent you an email with the instructions how to proceed further"
+msgstr "išsiuntėme jums el. laišką su instrukcijomis, kaip elgtis toliau"
+
+#: .\user_profile\templates\registration\password_reset_done.html:7
+msgid ""
+"If you don’t receive an email, please make sure you’ve entered the address "
+"you registered with, and check your spam folder"
+msgstr ""
+
+#: .\user_profile\templates\registration\password_reset_form.html:3
+msgid "forgot password at"
+msgstr "pamiršote slaptažodį"
+
+#: .\user_profile\templates\registration\password_reset_form.html:13
+#: .\user_profile\templates\user_profile\detail.html:19
+#: .\user_profile\templates\user_profile\register.html:16
+#: .\user_profile\templates\user_profile\update.html:13
+msgid "email"
+msgstr "el. paštas"
+
+#: .\user_profile\templates\user_profile\detail.html:3
+msgid "profile at"
+msgstr "profilis"
+
+#: .\user_profile\templates\user_profile\detail.html:5
+msgid "user details"
+msgstr "vartotojo duomenys"
+
+#: .\user_profile\templates\user_profile\detail.html:15
+msgid "full name"
+msgstr "pilnas vardas"
+
+#: .\user_profile\templates\user_profile\detail.html:20
+#: .\user_profile\templates\user_profile\update.html:4
+msgid "update your profile"
+msgstr "atnaujinti savo profilį"
+
+#: .\user_profile\templates\user_profile\register.html:3
+msgid "sign up to"
+msgstr "užsiregistruoti į"
+
+#: .\user_profile\templates\user_profile\register.html:5
+msgid "member registration"
+msgstr "nario registracija"
+
+#: .\user_profile\templates\user_profile\register.html:12
+msgid "up to 100 symbols"
+msgstr "iki 100 simbolių"
+
+#: .\user_profile\templates\user_profile\register.html:23
+msgid ""
+"minimum 8 symbols and cannot be only numbers, or match any part of username"
+msgstr "mažiausiai 8 simboliai ir negali būti tik skaičiai arba atitikti kurią nors dalį vartotojo vardo"
+
+#: .\user_profile\templates\user_profile\register.html:27
+msgid "confirm password"
+msgstr "patvirtinti slaptažodį"
+
+#: .\user_profile\templates\user_profile\register.html:31
+msgid "sign up"
+msgstr "užsiregistruoti"
+
+#: .\user_profile\templates\user_profile\update.html:2
+msgid "updating profile at"
+msgstr "atnaujinamas profilis"
+
+#: .\user_profile\templates\user_profile\update.html:17
+msgid "first name"
+msgstr "vardas"
+
+#: .\user_profile\templates\user_profile\update.html:21
+msgid "last name"
+msgstr "pavardė"
+
+#: .\user_profile\templates\user_profile\update.html:25
+msgid "profile photo"
+msgstr "profilio nuotrauka"
+
+#: .\user_profile\templates\user_profile\update.html:29
+msgid "update"
+msgstr "atnaujinti"
+
+#: .\user_profile\views.py:23
+msgid "password do not match or were not entered"
+msgstr "slaptažodžiai nesutampa arba nebuvo įvesti"
+
+#: .\user_profile\views.py:26
+msgid "username already taken or was not entered"
+msgstr "vartotojo vardas jau užimtas arba nebuvo įvestas"
+
+#: .\user_profile\views.py:29
+msgid "user with this email already exists, or email was not entered"
+msgstr "vartotojas su šiuo el. pašto adresu jau registruotas arba el. paštas nebuvo įvestas"
+
+#: .\user_profile\views.py:60
+msgid "your profile was successfully updated"
+msgstr "jūsų profilis buvo sėkmingai atnaujintas"

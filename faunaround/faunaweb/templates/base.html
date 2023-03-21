@@ -1,9 +1,11 @@
 <!DOCTYPE html>
-{% load static %}
+{% load static i18n %}
 {% load bootstrap4 %}
 {% bootstrap_css %}
 {% bootstrap_javascript jquery='full' %}
-<html lang="en">
+{% get_current_language as LANGUAGE_CODE %}
+{% get_available_languages as LANGUAGES %}
+<html lang="{{ LANGUAGE_CODE }}">
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,28 +19,28 @@
     <body>
         <header>
             <h1>FAUNAround</h1>
-            <h2>Best place to record your fauna observations</h2>
+            <h2>{% trans 'best place to record your fauna observations'|capfirst %}</h2>
         </header>
         <nav>
             <ul class="flex-menu">
-                <li><a href="{% url 'index' %}">HOME</a></li>
-                <li><a href="{% url 'all_classes' %}">Animal Classes</a></li>
-                <li><a href="{% url 'observations' %}">Observations</a></li>
-                <li><a href="{% url 'data_analysis' %}">Analytics</a></li>
-                <li><a href="{% url 'about' %}">About Us</a></li>
+                <li><a href="{% url 'index' %}">{% trans 'home'|upper %}</a></li>
+                <li><a href="{% url 'all_classes' %}">{% trans 'animal classes'|capfirst %}</a></li>
+                <li><a href="{% url 'observations' %}">{% trans 'observations'|capfirst %}</a></li>
+                <li><a href="{% url 'data_analysis' %}">{% trans 'analytics'|capfirst %}</a></li>
+                <li><a href="{% url 'about' %}">{% trans 'about us'|capfirst %}</a></li>
             </ul>
             <ul class="flex-menu-user">
                 {% if request.user.is_authenticated %}
                     <li><a href="{% url 'profile_detail_active' %}">{{ request.user }}</a></li>
-                    <li><a href="{% url 'add_observation' %}">Add new observation</a></li>
-                    <li><a href="{% url 'user_observations' %}">My observations</a></li>
+                    <li><a href="{% url 'add_observation' %}">{% trans 'add new observation'|capfirst %}</a></li>
+                    <li><a href="{% url 'user_observations' %}">{% trans 'my observations'|capfirst %}</a></li>
                     {% if request.user.is_superuser or request.user.is_staff %}
-                        <li><a href="{% url 'admin:index' %}">Admin</a></li>
+                        <li><a href="{% url 'admin:index' %}">{% trans 'admin'|capfirst %}</a></li>
                     {% endif %}
-                    <li><a href="{% url 'logout' %}">Log out</a></li>
+                    <li><a href="{% url 'logout' %}">{% trans 'log out'|capfirst %}</a></li>
                 {% else %}
-                    <li><a href="{% url 'login' %}{% if request.path != '/accounts/logout/' %}?next={{ request.path }}{% endif %}">Log in</a></li>
-                    <li><a href="{% url 'register' %}">Sign up</a></li>
+                    <li><a href="{% url 'login' %}{% if request.path != '/accounts/logout/' %}?next={{ request.path }}{% endif %}">{% trans 'log in'|capfirst %}</a></li>
+                    <li><a href="{% url 'register' %}">{% trans 'sign up'|capfirst %}</a></li>
                 {% endif %}
             </ul>
         </nav>

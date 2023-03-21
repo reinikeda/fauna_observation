@@ -1,24 +1,24 @@
 {% extends 'base.html' %}
-{% load static %}
+{% load static i18n %}
 {% block title %}{{ block.super }}{% endblock title %}
 {% block content %}
-<h1>Delete observation</h1>
+<h1>{% trans 'delete observation'|capfirst %}</h1>
 <div>
-    <p>Do you really want to delete this observation?</p>
-    <p>Date: {{ observation.date }}</p>
-    <p>Species: {{ observation.species }}</p>
-    <p>Count: {{ observation.count }}</p>
-    <p>Place: {{ observation.place }}</p>
-    <p>Photo:</p>
+    <p>{% trans 'do you really want to delete this observation'|capfirst %}?</p>
+    <p>{% trans 'date'|capfirst %}: {{ observation.date }}</p>
+    <p>{% trans 'species'|capfirst %}: {{ observation.species }}</p>
+    <p>{% trans 'count'|capfirst %}: {{ observation.count }}</p>
+    <p>{% trans 'place'|capfirst %}: {{ observation.place }}</p>
+    <p>{% trans 'photo'|capfirst %}:</p>
     {% if observation.photo %}
     <img src="{{ observation.photo.url }}" alt="Observation Photo">
     {% else %}
-    <p>No photo available</p>
+    <p>{% trans 'no photo available'|capfirst %}</p>
     {% endif %}
 <div>
 <form method="POST">
   {% csrf_token %}
-  <input type="submit" value="Delete">
-  <a href="{% url 'user_observations' %}">Cancel</a>
+  <input type="submit" value="{% trans 'delete'|capfirst %}">
+  <a href="{% url 'user_observations' %}">{% trans 'cancel'|capfirst %}</a>
 </form>
 {% endblock content %}

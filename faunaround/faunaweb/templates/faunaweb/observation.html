@@ -1,21 +1,21 @@
 {% extends 'base.html' %}
-{% load static %}
+{% load static i18n %}
 {% block title %}{{ block.super }}{% endblock title %}
 {% block content %}
-<h1>Observations</h1>
+<h1>{% trans 'observations'|capfirst %}</h1>
 {% if observation_list %}
 {% include 'faunaweb/includes/search.html' %}
 {% include 'faunaweb/includes/paginator_next.html' %}
-<h3>All observers already spotted {{ species_count }} of {{ total_species_count }} species</h3>
+<h3>{% trans 'all observers already spotted'|capfirst %} {{ species_count }} {% trans 'of'|lower %} {{ total_species_count }} {% trans 'species'|lower %}</h3>
 <table class="observation-table">
     <tr>
-        <th>Date</th>
-        <th>Class</th>
-        <th>Species</th>
-        <th>Count</th>
-        <th>Place</th>
-        <th>Observer</th>
-        <th>Photo</th>
+        <th>{% trans 'date'|capfirst %}</th>
+        <th>{% trans 'class'|capfirst %}</th>
+        <th>{% trans 'species'|capfirst %}</th>
+        <th>{% trans 'count'|capfirst %}</th>
+        <th>{% trans 'place'|capfirst %}</th>
+        <th>{% trans 'observer'|capfirst %}</th>
+        <th>{% trans 'photo'|capfirst %}</th>
     </tr>
     {% for observation in observation_list %}
         <tr>
@@ -35,14 +35,14 @@
                 {% if observation.photo %}
                 <img src="{{ observation.photo.url }}" class="observation-img">
                 {% else %}
-                <p>No image uploaded</p>
+                <p>{% trans 'no image uploaded'|capfirst %}</p>
                 {% endif %}
             </td>
         </tr>
     {% endfor %}
 </table>
-<div class="total-entries">Total entries: {{ entries_count }}</div>
+<div class="total-entries">{% trans 'total entries'|capfirst %}: {{ entries_count }}</div>
 {% else %}
-    <p>No observations yet</p>
+    <p>{% trans 'no observations yet'|capfirst %}</p>
 {% endif %}
 {% endblock content %}

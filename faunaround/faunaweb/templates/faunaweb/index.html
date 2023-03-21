@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
-{% load static %}
-{% block title %}Welcome to {{ block.super }}{% endblock title %}
+{% load static i18n %}
+{% block title %}{% trans 'welcome to'|capfirst %} {{ block.super }}{% endblock title %}
 {% block content %}
 <div class="flex-main">
     <div class="flex-main-box">
@@ -12,37 +12,31 @@
                 <img src="{% static 'img/default.png' %}">
             {% endif %}
         {% else %}
-            <p>Sorry, no random species found</p>
+            <p>{% trans 'sorry, no random species found'|capfirst %}</p>
         {% endif %}
     </div>
     <div class="flex-main-box">
         <p>{{ welcome|safe }}</p>
     </div>
     <div class="flex-main-box">
-        <p>Some diagram (top species or other). NO INFORMATION YET.</p>
-    </div>
-    <div class="flex-main-box">
         {% if top_species %}
-            <h4>TOP registered species</h4>
+            <h4>{% trans 'top registered species'|capfirst %}</h4>
             {% for observation in top_species %}
-                <p><a href="{% url 'species_detail' observation.species__pk %}">{{ observation.species__species_national }} ({{ observation.species__species_scientific }})</a> - {{ observation.species_count }} time(s)</p>
+                <p><a href="{% url 'species_detail' observation.species__pk %}">{{ observation.species__species_national }} ({{ observation.species__species_scientific }})</a> - {{ observation.species_count }} {% trans 'time(s)'|lower %}</p>
             {% endfor %}
         {% else %}
-            <p>No species observations were registered.</p>
+            <p>{% trans 'no species observations were registered'|capfirst %}</p>
         {% endif %}
     </div>
     <div class="flex-main-box">
         {% if latest_observations %}
-            <h4>Latest observations</h4>
+            <h4>{% trans 'latest observations'|capfirst %}</h4>
             {% for observation in latest_observations %}
                 <p>{{ observation.date }} - <a href="{% url 'species_detail' observation.species.pk %}">{{ observation.species.species_national }} ({{ observation.species.species_scientific }})</a></p>
             {% endfor %}
         {% else %}
-            <p>No species observations were registered.</p>
+            <p>{% trans 'no species observations were registered'|capfirst %}</p>
         {% endif %}
-    </div>
-    <div class="flex-main-box">
-        <p>Some diagram (top classes or other). NO INFORMATION YET.</p>
     </div>
 </div>
 {% endblock content %}

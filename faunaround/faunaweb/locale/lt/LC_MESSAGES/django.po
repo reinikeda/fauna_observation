@@ -1,0 +1,429 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-03-21 14:00+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=(n % 10 == 1 && (n % 100 > 19 || n % 100 < "
+"11) ? 0 : (n % 10 >= 2 && n % 10 <=9) && (n % 100 > 19 || n % 100 < 11) ? "
+"1 : n % 1 != 0 ? 2: 3);\n"
+#: .\faunaweb\admin.py:17
+msgid "Class"
+msgstr "Klasė"
+
+#: .\faunaweb\admin.py:18
+msgid "Order"
+msgstr "Būrys"
+
+#: .\faunaweb\admin.py:19
+msgid "Family"
+msgstr "Šeima"
+
+#: .\faunaweb\admin.py:20
+msgid "Species"
+msgstr "Rūšis"
+
+#: .\faunaweb\admin.py:21
+msgid "Endangered"
+msgstr "Nykstanti"
+
+#: .\faunaweb\admin.py:22
+msgid "Image"
+msgstr "Paveikslėlis"
+
+#: .\faunaweb\models.py:12
+msgid "class scientific name"
+msgstr "klasės mokslinis pavadinimas"
+
+#: .\faunaweb\models.py:13
+msgid "class english name"
+msgstr "klasės angliškas pavadinimas"
+
+#: .\faunaweb\models.py:14
+msgid "class national name"
+msgstr "klasės nacionalinis pavadinimas"
+
+#: .\faunaweb\models.py:15
+msgid "example image"
+msgstr "pavyzdinis paveikslėlis"
+
+#: .\faunaweb\models.py:22
+msgid "animal class"
+msgstr "gyvūnų klasė"
+
+#: .\faunaweb\models.py:23 .\faunaweb\models.py:32
+#: .\faunaweb\templates\base.html:27
+#: .\faunaweb\templates\faunaweb\animal_classes.html:5
+msgid "animal classes"
+msgstr "gyvūnų klasės"
+
+#: .\faunaweb\models.py:34
+msgid "order scientific name"
+msgstr "būrio mokslinis pavadinimas"
+
+#: .\faunaweb\models.py:35 .\faunaweb\models.py:37
+msgid "order national name"
+msgstr "būrio nacionalinis pavadinimas"
+
+#: .\faunaweb\models.py:36
+msgid "family scientific name"
+msgstr "šeimos mokslinis pavadinimas"
+
+#: .\faunaweb\models.py:38
+msgid "species scientific name"
+msgstr "rūšies mokslinis pavadinimas"
+
+#: .\faunaweb\models.py:39
+msgid "species english name"
+msgstr "rūšies angliškas pavadinimas"
+
+#: .\faunaweb\models.py:40
+msgid "species national name"
+msgstr "rūšies nacionalinis pavadinimas"
+
+#: .\faunaweb\models.py:41
+msgid "endangered species"
+msgstr "nykstanti rūšis"
+
+#: .\faunaweb\models.py:42
+msgid "species image"
+msgstr "rušies paveikslėlis"
+
+#: .\faunaweb\models.py:60
+msgid "place english name"
+msgstr "vietos angliškas pavadinimas"
+
+#: .\faunaweb\models.py:61
+msgid "place national name"
+msgstr "vietos nacionalinis pavadinimas"
+
+#: .\faunaweb\models.py:68 .\faunaweb\models.py:85
+#: .\faunaweb\templates\faunaweb\add_observation.html:22
+#: .\faunaweb\templates\faunaweb\delete_observation.html:11
+#: .\faunaweb\templates\faunaweb\edit_observation.html:22
+#: .\faunaweb\templates\faunaweb\observation.html:16
+#: .\faunaweb\templates\faunaweb\user_observation.html:16
+msgid "place"
+msgstr "vieta"
+
+#: .\faunaweb\models.py:69
+msgid "places"
+msgstr "vietos"
+
+#: .\faunaweb\models.py:77
+msgid "animal species"
+msgstr "gyvūnų rušis"
+
+#: .\faunaweb\models.py:79
+#: .\faunaweb\templates\faunaweb\add_observation.html:10
+#: .\faunaweb\templates\faunaweb\delete_observation.html:8
+#: .\faunaweb\templates\faunaweb\edit_observation.html:10
+#: .\faunaweb\templates\faunaweb\observation.html:12
+#: .\faunaweb\templates\faunaweb\user_observation.html:12
+msgid "date"
+msgstr "data"
+
+#: .\faunaweb\models.py:80
+#: .\faunaweb\templates\faunaweb\add_observation.html:18
+#: .\faunaweb\templates\faunaweb\delete_observation.html:10
+#: .\faunaweb\templates\faunaweb\edit_observation.html:18
+#: .\faunaweb\templates\faunaweb\observation.html:15
+#: .\faunaweb\templates\faunaweb\user_observation.html:15
+msgid "count"
+msgstr "kiekis"
+
+#: .\faunaweb\models.py:89 .\faunaweb\templates\faunaweb\observation.html:17
+msgid "observer"
+msgstr "stebėtojas"
+
+#: .\faunaweb\models.py:95
+#: .\faunaweb\templates\faunaweb\add_observation.html:26
+#: .\faunaweb\templates\faunaweb\delete_observation.html:12
+#: .\faunaweb\templates\faunaweb\edit_observation.html:26
+#: .\faunaweb\templates\faunaweb\observation.html:18
+#: .\faunaweb\templates\faunaweb\user_observation.html:17
+msgid "photo"
+msgstr "nuotrauka"
+
+#: .\faunaweb\models.py:105
+msgid "observation"
+msgstr "stebėjimas"
+
+#: .\faunaweb\models.py:106 .\faunaweb\templates\base.html:28
+#: .\faunaweb\templates\faunaweb\observation.html:5
+msgid "observations"
+msgstr "stebėjimai"
+
+#: .\faunaweb\models.py:119
+msgid "content"
+msgstr "turinys"
+
+#: .\faunaweb\templates\base.html:22
+msgid "best place to record your fauna observations"
+msgstr "geriausia vieta jūsų gyvūnijos stebėjimamas"
+
+#: .\faunaweb\templates\base.html:26
+msgid "home"
+msgstr "pradinis"
+
+#: .\faunaweb\templates\base.html:29
+msgid "analytics"
+msgstr "analitika"
+
+#: .\faunaweb\templates\base.html:30
+msgid "about us"
+msgstr "apie mus"
+
+#: .\faunaweb\templates\base.html:35
+msgid "add new observation"
+msgstr "pridėti naują stebėjimą"
+
+#: .\faunaweb\templates\base.html:36
+#: .\faunaweb\templates\faunaweb\user_observation.html:5
+msgid "my observations"
+msgstr "mano stebėjimai"
+
+#: .\faunaweb\templates\base.html:38
+msgid "admin"
+msgstr "administravimas"
+
+#: .\faunaweb\templates\base.html:40
+msgid "log out"
+msgstr "atsijungti"
+
+#: .\faunaweb\templates\base.html:42
+msgid "log in"
+msgstr "prisijungti"
+
+#: .\faunaweb\templates\base.html:43
+msgid "sign up"
+msgstr "užsiregistruoti"
+
+#: .\faunaweb\templates\faunaweb\about.html:3
+msgid "about"
+msgstr "apie"
+
+#: .\faunaweb\templates\faunaweb\add_observation.html:5
+msgid "add observation"
+msgstr "pridėti stebėjimą"
+
+#: .\faunaweb\templates\faunaweb\add_observation.html:14
+#: .\faunaweb\templates\faunaweb\delete_observation.html:9
+#: .\faunaweb\templates\faunaweb\edit_observation.html:14
+#: .\faunaweb\templates\faunaweb\observation.html:9
+#: .\faunaweb\templates\faunaweb\observation.html:14
+#: .\faunaweb\templates\faunaweb\user_observation.html:9
+#: .\faunaweb\templates\faunaweb\user_observation.html:14
+msgid "species"
+msgstr "rūšis"
+
+#: .\faunaweb\templates\faunaweb\add_observation.html:31
+msgid "add"
+msgstr "pridėti"
+
+#: .\faunaweb\templates\faunaweb\animal_classes.html:22
+#: .\faunaweb\templates\faunaweb\species_list.html:24
+msgid "no animal classes uploaded to database"
+msgstr "duomenų bazėje nėra jokių gyvūnų klasių"
+
+#: .\faunaweb\templates\faunaweb\data_analysis.html:5
+msgid "observations data analysis"
+msgstr "stebėjimų duomenų analizė"
+
+#: .\faunaweb\templates\faunaweb\data_analysis.html:8
+msgid "number of animal species in our database"
+msgstr "gyvūnų rūšių skaičius duomenų bazėje"
+
+#: .\faunaweb\templates\faunaweb\data_analysis.html:9
+#: .\faunaweb\templates\faunaweb\data_analysis.html:14
+#: .\faunaweb\templates\faunaweb\data_analysis.html:19
+#: .\faunaweb\templates\faunaweb\data_analysis.html:24
+#: .\faunaweb\templates\faunaweb\data_analysis.html:30
+#: .\faunaweb\templates\faunaweb\data_analysis.html:35
+msgid "your browser does not support the canvas element"
+msgstr "jūsų naršyklė nepalaiko šio paveikslėlių elemento"
+
+#: .\faunaweb\templates\faunaweb\data_analysis.html:13
+msgid "observations count by month"
+msgstr "stebėjimų skaičius pagal mėnesį"
+
+#: .\faunaweb\templates\faunaweb\data_analysis.html:18
+msgid "top 10 places by observations count"
+msgstr "top 10 vietų pagal stebėjimų kiekį"
+
+#: .\faunaweb\templates\faunaweb\data_analysis.html:23
+msgid "top 10 observed species"
+msgstr "top 10 stebėtų rūšių"
+
+#: .\faunaweb\templates\faunaweb\data_analysis.html:29
+msgid "top 10 observers by observations count"
+msgstr "top 10 stebėtojų pagal stebėjimų skaičių"
+
+#: .\faunaweb\templates\faunaweb\data_analysis.html:34
+msgid "top 10 observers by species count"
+msgstr "top 10 stebėtojų pagal rūšių skaičių"
+
+#: .\faunaweb\templates\faunaweb\delete_observation.html:5
+msgid "delete observation"
+msgstr "ištrinti stebėjimą"
+
+#: .\faunaweb\templates\faunaweb\delete_observation.html:7
+msgid "do you really want to delete this observation"
+msgstr "ar tikrai norite ištrinti šį stebėjimą"
+
+#: .\faunaweb\templates\faunaweb\delete_observation.html:16
+msgid "no photo available"
+msgstr "nuotraukos nėra"
+
+#: .\faunaweb\templates\faunaweb\delete_observation.html:21
+#: .\faunaweb\templates\faunaweb\user_observation.html:35
+msgid "delete"
+msgstr "ištrinti"
+
+#: .\faunaweb\templates\faunaweb\delete_observation.html:22
+msgid "cancel"
+msgstr "atšaukti"
+
+#: .\faunaweb\templates\faunaweb\edit_observation.html:5
+msgid "edit observation"
+msgstr "redaguoti stebėjimą"
+
+#: .\faunaweb\templates\faunaweb\edit_observation.html:31
+msgid "update information"
+msgstr "atnaujinti informaciją"
+
+#: .\faunaweb\templates\faunaweb\includes\paginator_next.html:4
+msgid "first"
+msgstr "pirmas"
+
+#: .\faunaweb\templates\faunaweb\includes\paginator_next.html:5
+msgid "previous"
+msgstr "ankstesnis"
+
+#: .\faunaweb\templates\faunaweb\includes\paginator_next.html:8
+#: .\faunaweb\templates\faunaweb\observation.html:9
+#: .\faunaweb\templates\faunaweb\user_observation.html:9
+msgid "of"
+msgstr "iš"
+
+#: .\faunaweb\templates\faunaweb\includes\paginator_next.html:11
+msgid "next"
+msgstr "sekantis"
+
+#: .\faunaweb\templates\faunaweb\includes\paginator_next.html:12
+msgid "last"
+msgstr "paskutinis"
+
+#: .\faunaweb\templates\faunaweb\includes\search.html:3
+#: .\faunaweb\templates\faunaweb\includes\search.html:4
+msgid "search"
+msgstr "paieška"
+
+#: .\faunaweb\templates\faunaweb\includes\search.html:5
+msgid "reset"
+msgstr "atstatyti"
+
+#: .\faunaweb\templates\faunaweb\index.html:3
+msgid "welcome to"
+msgstr "sveiki atvykę į"
+
+#: .\faunaweb\templates\faunaweb\index.html:15
+msgid "sorry, no random species found"
+msgstr "atsiprašome, atsitiktinė rūšis nebuvo rasta"
+
+#: .\faunaweb\templates\faunaweb\index.html:23
+msgid "top registered species"
+msgstr "dažniausiai registruotos rūšys"
+
+#: .\faunaweb\templates\faunaweb\index.html:25
+msgid "time(s)"
+msgstr "kartas(-ai)"
+
+#: .\faunaweb\templates\faunaweb\index.html:28
+#: .\faunaweb\templates\faunaweb\index.html:38
+msgid "no species observations were registered"
+msgstr "jokių rūšių nebuvo užregistruota"
+
+#: .\faunaweb\templates\faunaweb\index.html:33
+msgid "latest observations"
+msgstr "naujausi stebėjimai"
+
+#: .\faunaweb\templates\faunaweb\observation.html:9
+msgid "all observers already spotted"
+msgstr "visi stebėtojai jau užfiksavo"
+
+#: .\faunaweb\templates\faunaweb\observation.html:13
+#: .\faunaweb\templates\faunaweb\user_observation.html:13
+msgid "class"
+msgstr "klasė"
+
+#: .\faunaweb\templates\faunaweb\observation.html:38
+#: .\faunaweb\templates\faunaweb\user_observation.html:31
+msgid "no image uploaded"
+msgstr "paveikslėlis neįkeltas"
+
+#: .\faunaweb\templates\faunaweb\observation.html:44
+#: .\faunaweb\templates\faunaweb\user_observation.html:39
+msgid "total entries"
+msgstr "viso įrašų"
+
+#: .\faunaweb\templates\faunaweb\observation.html:46
+#: .\faunaweb\templates\faunaweb\user_observation.html:41
+msgid "no observations yet"
+msgstr "stebėjimų kol kas nėra"
+
+#: .\faunaweb\templates\faunaweb\species_detail.html:8
+msgid "family"
+msgstr "šeima"
+
+#: .\faunaweb\templates\faunaweb\species_detail.html:9
+msgid "order"
+msgstr "būrys"
+
+#: .\faunaweb\templates\faunaweb\species_detail.html:12
+msgid "number of observations"
+msgstr "stebėjimų skaičius"
+
+#: .\faunaweb\templates\faunaweb\species_detail.html:23
+msgid "read more on"
+msgstr "skaitykite daugiau"
+
+#: .\faunaweb\templates\faunaweb\species_detail.html:23
+msgid "Wikipedia"
+msgstr "Vikipedijoje"
+
+#: .\faunaweb\templates\faunaweb\species_detail.html:27
+msgid "Click"
+msgstr "Spausti"
+
+#: .\faunaweb\templates\faunaweb\species_detail.html:27
+msgid "here"
+msgstr "čia"
+
+#: .\faunaweb\templates\faunaweb\species_detail.html:27
+msgid "to add new observation of this species"
+msgstr "pridėti naują šios rūšies stebėjimą"
+
+#: .\faunaweb\templates\faunaweb\user_observation.html:9
+msgid "you already spotted"
+msgstr "jūs jau uzfiksavote"
+
+#: .\faunaweb\templates\faunaweb\user_observation.html:18
+msgid "edit or delete"
+msgstr "redaguoti arba trinti"
+
+#: .\faunaweb\templates\faunaweb\user_observation.html:34
+msgid "edit"
+msgstr "redaguoti"

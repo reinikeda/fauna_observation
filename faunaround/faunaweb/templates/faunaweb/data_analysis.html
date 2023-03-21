@@ -1,38 +1,38 @@
 {% extends 'base.html' %}
-{% load static %}
+{% load static i18n %}
 {% block title %}{{ block.super }}{% endblock title %}
 {% block content %}
-<h1>Observations data analysis</h1>
+<h1>{% trans 'observations data analysis'|capfirst %}</h1>
 <div class="flex-main">
   <div class="flex-chart-box">
-    <h3>Number of animal species in our database</h3>
-    <canvas id="species-chart">Your browser does not support the canvas element</canvas>
+    <h3>{% trans 'number of animal species in our database'|capfirst %}</h3>
+    <canvas id="species-chart">{% trans 'your browser does not support the canvas element'|capfirst %}</canvas>
     <script>{% include 'faunaweb/includes/animal_classes.js' %}</script>
   </div>
   <div class="flex-chart-box">
-    <h3>Observations count by month</h3>
-    <canvas id="observation-month-chart">Your browser does not support the canvas element</canvas>
+    <h3>{% trans 'observations count by month'|capfirst %}</h3>
+    <canvas id="observation-month-chart">{% trans 'your browser does not support the canvas element'|capfirst %}</canvas>
     <script>{% include 'faunaweb/includes/month_count.js' %}</script>
   </div>
   <div class="flex-chart-box">
-    <h3>TOP 10 observation places by observations count</h3>
-    <canvas id="observation-places-chart">Your browser does not support the canvas element</canvas>
+    <h3>{% trans 'top 10 places by observations count'|capfirst %}</h3>
+    <canvas id="observation-places-chart">{% trans 'your browser does not support the canvas element'|capfirst %}</canvas>
     <script>{% include 'faunaweb/includes/places.js' %}</script>
   </div>
   <div class="flex-chart-box">
-    <h3>TOP 10 observed species</h3>
-    <canvas id="observation-species-chart">Your browser does not support the canvas element</canvas>
+    <h3>{% trans 'top 10 observed species'|capfirst %}</h3>
+    <canvas id="observation-species-chart">{% trans 'your browser does not support the canvas element'|capfirst %}</canvas>
     <script>{% include 'faunaweb/includes/species_count.js' %}</script>
   </div>
   {% if request.user.is_authenticated %}
   <div class="flex-chart-box">
-    <h3>TOP 10 observers by observations count</h3>
-    <canvas id="observers-chart">Your browser does not support the canvas element</canvas>
+    <h3>{% trans 'top 10 observers by observations count'|capfirst %}</h3>
+    <canvas id="observers-chart">{% trans 'your browser does not support the canvas element'|capfirst %}</canvas>
     <script>{% include 'faunaweb/includes/observers.js' %}</script>
   </div>
   <div class="flex-chart-box">
-    <h3>TOP 10 observers by species count</h3>
-    <canvas id="observers-species-chart">Your browser does not support the canvas element</canvas>
+    <h3>{% trans 'top 10 observers by species count'|capfirst %}</h3>
+    <canvas id="observers-species-chart">{% trans 'your browser does not support the canvas element'|capfirst %}</canvas>
     <script>{% include 'faunaweb/includes/observers_by_species.js' %}</script>
   </div>
   {% endif %}

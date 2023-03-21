@@ -1,31 +1,31 @@
 {% extends 'base.html' %}
-{% block title %}Updating {{ block.super }} profile{% endblock title %}
+{% block title %}{% trans 'updating profile at'|capfirst %} {{ block.super }}{% endblock title %}
 {% block content %}
-<h1>Update your profile</h1>
+<h1>{% trans 'update your profile'|capfirst %}</h1>
 <form method="post" action="{{ request.path }}" enctype="multipart/form-data">
     {% csrf_token %}
     <table class="form-table">
         <tr>
-            <td><label for="username">Username:</label></td>
+            <td><label for="username">{% trans 'username'|capfirst %}:</label></td>
             <td>{{ user_form.username }}</td>
         </tr>
         <tr>
-            <td><label for="email">Email:</label></td>
+            <td><label for="email">{% trans 'email'|capfirst %}:</label></td>
             <td>{{ user_form.email }}</td>
         </tr>
         <tr>
-            <td><label for="first_name">First name:</label></td>
+            <td><label for="first_name">{% trans 'first name'|capfirst %}:</label></td>
             <td>{{ user_form.first_name }}</td>
         </tr>
         <tr>
-            <td><label for="last_name">Last name:</label></td>
+            <td><label for="last_name">{% trans 'last name'|capfirst %}:</label></td>
             <td>{{ user_form.last_name }}</td>
         </tr>
         <tr>
-            <td><label for="photo">Profile photo:</label></td>
+            <td><label for="photo">{% trans 'profile photo'|capfirst %}:</label></td>
             <td>{{ profile_form.photo }}</td>
         </tr>
     </table>
-    <button type="submit" class="form-button">Update</button>
+    <button type="submit" class="form-button">{% trans 'update'|capfirst %}</button>
 </form>
 {% endblock content %}

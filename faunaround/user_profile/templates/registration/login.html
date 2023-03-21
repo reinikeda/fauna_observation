@@ -1,23 +1,24 @@
 {% extends 'base.html' %}
-{% block title %}Log into {{ block.super }}{% endblock title %}
+{% load i18n %}
+{% block title %}{% trans 'log into'|capfirst %} {{ block.super }}{% endblock title %}
 {% block content %}
-<h1>Log in</h1>
+<h1>{% trans 'log in'|capfirst %}</h1>
 {% if form.errors %}
-    <div class="alert alert-error">Error while logging in. Please try again.</div>
+    <div class="alert alert-error">{% trans 'error while logging in'|capfirst %}. {% trans 'please try again'|capfirst %}.</div>
 {% endif %}
 <form method="post" action="{% url 'login' %}?next={{ request.GET.next }}">
     {% csrf_token %}
     <table class="form-table">
         <tr>
-            <td><label for="{{ form.username.id_for_label }}">Username:</label></td>
+            <td><label for="{{ form.username.id_for_label }}">{% trans 'username'|capfirst %}:</label></td>
             <td>{{ form.username }}</td>
         </tr>
         <tr>
-            <td><label for="{{ form.password.id_for_label }}">Password:</label></td>
+            <td><label for="{{ form.password.id_for_label }}">{% trans 'password'|capfirst %}:</label></td>
             <td>{{ form.password  }}</td>
         </tr>
     </table>
-    <button type="submit" class="form-button">Log in</button>
+    <button type="submit" class="form-button">{% trans 'log in'|capfirst %}</button>
 </form>
-<p><a href="{% url 'password_reset' %}">Forgot password?</a></p>
+<p><a href="{% url 'password_reset' %}">{% trans 'forgot password'|capfirst %}?</a></p>
 {% endblock content %}

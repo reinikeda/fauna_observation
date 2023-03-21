@@ -1,5 +1,6 @@
+{% load i18n %}
 <form class="search" method="get">
-    <input type="text" name="search" placeholder="search..." value="{{ request.GET.search }}">
-    <button type="submit" class="form-button">search</button>
-    <a href="{{ request.path }}">reset</a>
+    <input type="text" name="search" placeholder="{% trans 'search'|lower %}..." value="{{ request.GET.search }}">
+    <button type="submit" class="form-button">{% trans 'search'|capfirst %}</button>
+    <a href="{{ request.path }}">{% trans 'reset'|lower %}</a>
 </form>

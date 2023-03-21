@@ -1,33 +1,33 @@
 {% extends 'base.html' %}
-{% load static %}
+{% load static i18n %}
 {% block title %}{{ block.super }}{% endblock title %}
 {% block content %}
-<h1>Edit observation</h1>
+<h1>{% trans 'edit observation'|capfirst %}</h1>
 <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
     <table class="form-table">
         <tr>
-            <td><label for="{{ form.date.id_for_label }}">Date:</label></td>
+            <td><label for="{{ form.date.id_for_label }}">{% trans 'date'|capfirst %}:</label></td>
             <td>{{ form.date }}</td>
         </tr>
         <tr>
-            <td><label for="{{ form.species.id_for_label }}">Species:</label></td>
+            <td><label for="{{ form.species.id_for_label }}">{% trans 'species'|capfirst %}:</label></td>
             <td>{{ form.species }}</td>
         </tr>
         <tr>
-            <td><label for="{{ form.count.id_for_label }}">Count:</label></td>
+            <td><label for="{{ form.count.id_for_label }}">{% trans 'count'|capfirst %}:</label></td>
             <td>{{ form.count }}</td>
         </tr>
         <tr>
-            <td><label for="{{ form.place.id_for_label }}">Place:</label></td>
+            <td><label for="{{ form.place.id_for_label }}">{% trans 'place'|capfirst %}:</label></td>
             <td>{{ form.place }}</td>
         </tr>
         <tr>
-            <td><label for="{{ form.photo.id_for_label }}">Photo:</label></td>
+            <td><label for="{{ form.photo.id_for_label }}">{% trans 'photo'|capfirst %}:</label></td>
             <td>{{ form.photo }}</td>
         </tr>
     </table>
     {{ form.media }}
-    <button type="submit" class="form-button">Update information</button>
+    <button type="submit" class="form-button">{% trans 'update information'|capfirst %}</button>
 </form>
 {% endblock content %}
