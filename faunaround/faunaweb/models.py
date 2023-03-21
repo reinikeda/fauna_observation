@@ -15,7 +15,7 @@ class AnimalClass(models.Model):
     example_image = models.ImageField(_('example image'), upload_to='faunaweb/classes/', null=True, blank=True)
 
     def __str__(self):
-        return f'{self.class_scientific} ({self.class_national})'
+        return f'{self.class_national} ({self.class_scientific})'
     
     class Meta:
         ordering = ['class_scientific']
@@ -42,7 +42,7 @@ class AnimalSpecies(models.Model):
     species_image = models.ImageField(_('species image'), upload_to='faunaweb/species/', null=True, blank=True)
 
     def __str__(self):
-        return f'{self.class_id} - {self.order_scientific}: {self.species_scientific} ({self.species_national})'
+        return f'{self.class_id}: {self.species_national} ({self.species_scientific})'
     
     class Meta:
         ordering = ['order_scientific', 'species_scientific']

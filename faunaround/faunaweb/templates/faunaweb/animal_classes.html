@@ -8,8 +8,8 @@
         {% for class in animalclass_list %}
             <a href="{% url 'species_list' class.pk %}">
             <div class="flex-classes-box">
-                <p>{{ class.class_scientific }}</p>
-                <p>{{ class.class_national }}</p>
+                <h4>{{ class.class_national }}</h4>
+                <h4>({{ class.class_scientific }})</h4>
                 {% if class.example_image %}
                     <img src="{{ class.example_image.url }}">
                 {% else %}

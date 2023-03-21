@@ -4,12 +4,12 @@
 {% block content %}
 <div class="flex-main">
     <div class="flex-species-box">
-        <h2>{{ object.species_scientific }} - {{ object.species_en }} - {{ object.species_national }}</h2>
-        <h3>Family: {{ object.family_scientific }} - {{ object.family_en }} - {{ object.family_national }}</h3>
-        <h3>Order: {{ object.order_scientific }} - {{ object.order_en }} - {{ object.order_national }}</h3>
+        <h2>{{ object.species_national }} ({{ object.species_scientific }})</h2>
+        <h4>Family: {{ object.family_national }} ({{ object.family_scientific }})</h4>
+        <h4>Order: {{ object.order_national }} ({{ object.order_scientific }})</h4>
     </div>
     <div class="flex-species-box">
-        <h3>Number of observations: {{ observation_count }}</h3>
+        <h4>Number of observations: {{ observation_count }}</h4>
     </div>
     <div class="flex-species-box">
         {% if object.species_image %}
