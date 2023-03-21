@@ -24,5 +24,12 @@
     <canvas id="observation-species-chart">Your browser does not support the canvas element</canvas>
     <script>{% include 'faunaweb/includes/species_count.js' %}</script>
   </div>
+  {% if request.user.is_authenticated %}
+  <div class="flex-chart-box">
+    <h3>TOP 10 observers by observations count</h3>
+    <canvas id="observers-chart">Your browser does not support the canvas element</canvas>
+    <script>{% include 'faunaweb/includes/observers.js' %}</script>
+  </div>
+  {% endif %}
 </div>
 {% endblock content %}

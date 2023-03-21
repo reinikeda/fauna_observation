@@ -180,6 +180,20 @@ class DataAnalysisView(generic.TemplateView):
         context['month_labels'] = month_labels
         context['month_data'] = month_data
 
+        # observers.js
+        observation_observer_counts = models.Observation.objects.values(
+            'observer__username',
+            'observer__first_name',
+            'observer__last_name'
+        ).annotate(observer_count=Count('observer__username')).order_by('-observer_count')[:10]
+        observer_labels = [
+            f"{observation_observer['observer__first_name']} {observation_observer['observer__last_name']}"
+            if observation_observer['observer__first_name'] and observation_observer['observer__last_name']
+            else observation_observer['observer__username'] for observation_observer in observation_observer_counts]
+        observer_data = [observation_observer['observer_count'] for observation_observer in observation_observer_counts]
+        context['observer_labels'] = observer_labels
+        context['observer_data'] = observer_data
+
         return context
 
 
