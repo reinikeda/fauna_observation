@@ -194,6 +194,20 @@ class DataAnalysisView(generic.TemplateView):
         context['observer_labels'] = observer_labels
         context['observer_data'] = observer_data
 
+        # observers_by_species.js
+        observer_species_counts = models.Observation.objects.values(
+            'observer__username',
+            'observer__first_name',
+            'observer__last_name'
+        ).annotate(species_count=Count('species', distinct=True)).order_by('-species_count')[:10]
+        observer_species_labels = [
+            f"{observer_species['observer__first_name']} {observer_species['observer__last_name']}"
+            if observer_species['observer__first_name'] and observer_species['observer__last_name']
+            else observer_species['observer__username'] for observer_species in observer_species_counts]
+        observer_species_data = [observer_species['species_count'] for observer_species in observer_species_counts]
+        context['observer_species_labels'] = observer_species_labels
+        context['observer_species_data'] = observer_species_data
+
         return context
 
 

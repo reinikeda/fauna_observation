@@ -15,7 +15,7 @@
     <script>{% include 'faunaweb/includes/month_count.js' %}</script>
   </div>
   <div class="flex-chart-box">
-    <h3>TOP 10 observation places</h3>
+    <h3>TOP 10 observation places by observations count</h3>
     <canvas id="observation-places-chart">Your browser does not support the canvas element</canvas>
     <script>{% include 'faunaweb/includes/places.js' %}</script>
   </div>
@@ -29,6 +29,11 @@
     <h3>TOP 10 observers by observations count</h3>
     <canvas id="observers-chart">Your browser does not support the canvas element</canvas>
     <script>{% include 'faunaweb/includes/observers.js' %}</script>
+  </div>
+  <div class="flex-chart-box">
+    <h3>TOP 10 observers by species count</h3>
+    <canvas id="observers-species-chart">Your browser does not support the canvas element</canvas>
+    <script>{% include 'faunaweb/includes/observers_by_species.js' %}</script>
   </div>
   {% endif %}
 </div>
