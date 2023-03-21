@@ -144,11 +144,16 @@ class DataAnalysisView(generic.TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
 
-        animal_class_counts = models.AnimalClass.objects.annotate(species_count=Count('species'))
+        animal_class_counts = models.AnimalClass.objects.annotate(
+            species_count=Count('species'),
+            observed_species_count=Count('species__observation__species', distinct=True)
+        )
         animal_class_labels = [animal_class.class_scientific for animal_class in animal_class_counts]
-        animal_class_data = [animal_class.species_count for animal_class in animal_class_counts]
+        species_count_data = [animal_class.species_count for animal_class in animal_class_counts]
+        observed_species_data = [animal_class.observed_species_count for animal_class in animal_class_counts]
         context['animal_class_labels'] = animal_class_labels
-        context['animal_class_data'] = animal_class_data
+        context['species_count_data'] = species_count_data
+        context['observed_species_data'] = observed_species_data
 
         observation_places_counts = models.Place.objects.annotate(observation_count=Count('observation')).order_by('-observation_count')[:10]
         places_labels = [observation_place.place_national for observation_place in observation_places_counts]

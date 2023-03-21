@@ -5,8 +5,14 @@ var myChart = new Chart(ctx, {
         labels: {{ animal_class_labels|safe }},
         datasets: [{
             label: 'Species count',
-            data: {{ animal_class_data|safe }},
+            data: {{ species_count_data|safe }},
             backgroundColor: '#609966',
+            borderColor: '#064420',
+            borderWidth: 1
+        }, {
+            label: 'Observed species count',
+            data: {{ observed_species_data|safe }},
+            backgroundColor: '#9DC08B',
             borderColor: '#064420',
             borderWidth: 1
         }]
