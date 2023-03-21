@@ -144,6 +144,7 @@ class DataAnalysisView(generic.TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
 
+        # animal_classes.js
         animal_class_counts = models.AnimalClass.objects.annotate(
             species_count=Count('species'),
             observed_species_count=Count('species__observation__species', distinct=True)
@@ -155,18 +156,21 @@ class DataAnalysisView(generic.TemplateView):
         context['species_count_data'] = species_count_data
         context['observed_species_data'] = observed_species_data
 
+        # places.js
         observation_places_counts = models.Place.objects.annotate(observation_count=Count('observation')).order_by('-observation_count')[:10]
         places_labels = [observation_place.place_national for observation_place in observation_places_counts]
         places_data = [observation_place.observation_count for observation_place in observation_places_counts]
         context['places_labels'] = places_labels
         context['places_data'] = places_data
 
-        species_counts = models.AnimalSpecies.objects.annotate(count=Count('observation')).order_by('-count')[:10]
+        # species_count.js
+        species_counts = models.AnimalSpecies.objects.annotate(count=Sum('observation__count')).order_by('-count')[:10]
         species_labels = [species_count.species_national for species_count in species_counts]
         species_data = [species_count.count for species_count in species_counts]
         context['species_labels'] = species_labels
         context['species_data'] = species_data
 
+        # month_count.js
         observation_counts = models.Observation.objects.annotate(month=TruncMonth('date')).values('month').annotate(count=Count('id'))
         month_labels = [count['month'].strftime('%B %Y') for count in observation_counts]
         month_data = [count['count'] for count in observation_counts]
