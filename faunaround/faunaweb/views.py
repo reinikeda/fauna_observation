@@ -20,8 +20,8 @@ class IndexView(generic.TemplateView):
     def get_context_data(self, **kwargs):
         language = get_language()
         context = super().get_context_data(**kwargs)
-        latest_observations = models.Observation.objects.order_by('-date')[:7]
-        top_species = models.Observation.objects.select_related('species').values('species', 'species__pk', 'species__species_national', 'species__species_scientific').annotate(species_count=Count('species')).order_by('-species_count')[:7]
+        latest_observations = models.Observation.objects.order_by('-date')[:6]
+        top_species = models.Observation.objects.select_related('species').values('species', 'species__pk', 'species__species_national', 'species__species_en', 'species__species_scientific').annotate(species_count=Count('species')).order_by('-species_count')[:7]
         species_count = models.AnimalSpecies.objects.count()
         random_index = random.randint(0, species_count - 1)
         random_species = models.AnimalSpecies.objects.all()[random_index]

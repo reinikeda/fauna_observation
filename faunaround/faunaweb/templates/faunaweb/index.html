@@ -5,7 +5,12 @@
 <div class="flex-main">
     <div class="flex-main-box">
         {% if random_species %}
-            <h4><a href="{% url 'species_detail' random_species.pk %}">{{ random_species.species_national }} ({{ random_species.species_scientific }})</a></h4>
+            {% if request.META.HTTP_ACCEPT_LANGUAGE|slice:":2" == 'lt' %}
+                <h4><a href="{% url 'species_detail' random_species.pk %}">{{ random_species.species_national }}</a></h4>
+            {% else %}
+                <h4><a href="{% url 'species_detail' random_species.pk %}">{{ random_species.species_en }}</a></h4>
+            {% endif %}
+            <h4><a href="{% url 'species_detail' random_species.pk %}">({{ random_species.species_scientific }})</a></h4>
             {% if random_species.species_image %}
                 <img src="{{ random_species.species_image.url }}" alt="{{ random_species.species_scientific }}">
             {% else %}
@@ -22,7 +27,11 @@
         {% if top_species %}
             <h4>{% trans 'top registered species'|capfirst %}</h4>
             {% for observation in top_species %}
-                <p><a href="{% url 'species_detail' observation.species__pk %}">{{ observation.species__species_national }} ({{ observation.species__species_scientific }})</a> - {{ observation.species_count }} {% trans 'time(s)'|lower %}</p>
+                {% if request.META.HTTP_ACCEPT_LANGUAGE|slice:":2" == 'lt' %}
+                    <p><a href="{% url 'species_detail' observation.species__pk %}">{{ observation.species__species_national }} ({{ observation.species__species_scientific }})</a> - {{ observation.species_count }} {% trans 'time(s)'|lower %}</p>
+                {% else %}
+                    <p><a href="{% url 'species_detail' observation.species__pk %}">{{ observation.species__species_en }} ({{ observation.species__species_scientific }})</a> - {{ observation.species_count }} {% trans 'time(s)'|lower %}</p>
+                {% endif %}
             {% endfor %}
         {% else %}
             <p>{% trans 'no species observations were registered'|capfirst %}</p>
@@ -32,7 +41,11 @@
         {% if latest_observations %}
             <h4>{% trans 'latest observations'|capfirst %}</h4>
             {% for observation in latest_observations %}
-                <p>{{ observation.date }} - <a href="{% url 'species_detail' observation.species.pk %}">{{ observation.species.species_national }} ({{ observation.species.species_scientific }})</a></p>
+                {% if request.META.HTTP_ACCEPT_LANGUAGE|slice:":2" == 'lt' %}
+                    <p>{{ observation.date }} - <a href="{% url 'species_detail' observation.species.pk %}">{{ observation.species.species_national }} ({{ observation.species.species_scientific }})</a></p>
+                {% else %}
+                    <p>{{ observation.date }} - <a href="{% url 'species_detail' observation.species.pk %}">{{ observation.species.species_en }} ({{ observation.species.species_scientific }})</a></p>
+                {% endif %}
             {% endfor %}
         {% else %}
             <p>{% trans 'no species observations were registered'|capfirst %}</p>
