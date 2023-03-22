@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-21 15:37+0200\n"
+"POT-Creation-Date: 2023-03-22 09:56+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -293,7 +293,7 @@ msgid "no photo available"
 msgstr "nuotraukos nėra"
 
 #: .\faunaweb\templates\faunaweb\delete_observation.html:21
-#: .\faunaweb\templates\faunaweb\user_observation.html:35
+#: .\faunaweb\templates\faunaweb\user_observation.html:43
 msgid "delete"
 msgstr "ištrinti"
 
@@ -375,17 +375,17 @@ msgid "class"
 msgstr "klasė"
 
 #: .\faunaweb\templates\faunaweb\observation.html:38
-#: .\faunaweb\templates\faunaweb\user_observation.html:31
+#: .\faunaweb\templates\faunaweb\user_observation.html:39
 msgid "no image uploaded"
 msgstr "paveikslėlis neįkeltas"
 
 #: .\faunaweb\templates\faunaweb\observation.html:44
-#: .\faunaweb\templates\faunaweb\user_observation.html:39
+#: .\faunaweb\templates\faunaweb\user_observation.html:47
 msgid "total entries"
 msgstr "viso įrašų"
 
 #: .\faunaweb\templates\faunaweb\observation.html:46
-#: .\faunaweb\templates\faunaweb\user_observation.html:41
+#: .\faunaweb\templates\faunaweb\user_observation.html:49
 msgid "no observations yet"
 msgstr "stebėjimų kol kas nėra"
 
@@ -423,12 +423,12 @@ msgstr "pridėti naują šios rūšies stebėjimą"
 
 #: .\faunaweb\templates\faunaweb\user_observation.html:9
 msgid "you already spotted"
-msgstr "jūs jau uzfiksavote"
+msgstr "jūs jau užfiksavote"
 
 #: .\faunaweb\templates\faunaweb\user_observation.html:18
 msgid "edit or delete"
 msgstr "redaguoti arba trinti"
 
-#: .\faunaweb\templates\faunaweb\user_observation.html:34
+#: .\faunaweb\templates\faunaweb\user_observation.html:42
 msgid "edit"
 msgstr "redaguoti"

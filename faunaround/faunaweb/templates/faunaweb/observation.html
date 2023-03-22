@@ -19,11 +19,19 @@
     </tr>
     {% for observation in observation_list %}
         <tr>
-            <td>{{ observation.date }}</td>
-            <td>{{ observation.species.class_id.class_national }} ({{ observation.species.class_id.class_scientific }})</td>
-            <td><a href="{% url 'species_detail' observation.species.pk %}">{{ observation.species.species_national }} ({{ observation.species.species_scientific }})</a></td>
-            <td>{{ observation.count }}</td>
-            <td>{{ observation.place }}</td>
+            {% if request.META.HTTP_ACCEPT_LANGUAGE|slice:":2" == 'lt' %}
+                <td>{{ observation.date }}</td>
+                <td>{{ observation.species.class_id.class_national }} ({{ observation.species.class_id.class_scientific }})</td>
+                <td><a href="{% url 'species_detail' observation.species.pk %}">{{ observation.species.species_national }} ({{ observation.species.species_scientific }})</a></td>
+                <td>{{ observation.count }}</td>
+                <td>{{ observation.place.place_national }}</td>
+            {% else %}
+                <td>{{ observation.date }}</td>
+                <td>{{ observation.species.class_id.class_en }} ({{ observation.species.class_id.class_scientific }})</td>
+                <td><a href="{% url 'species_detail' observation.species.pk %}">{{ observation.species.species_en }} ({{ observation.species.species_scientific }})</a></td>
+                <td>{{ observation.count }}</td>
+                <td>{{ observation.place.place_en }}</td>
+            {% endif %}
             <td>
                 {% if observation.observer.first_name and observation.observer.last_name %}
                     {{ observation.observer.first_name }} {{ observation.observer.last_name }}
