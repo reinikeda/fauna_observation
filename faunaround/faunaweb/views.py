@@ -8,6 +8,7 @@ from django.utils.translation import get_language
 from django.utils.translation import gettext_lazy as _
 import requests
 import random
+import locale
 from bs4 import BeautifulSoup
 from . import models
 from .forms import ObservationForm
@@ -17,6 +18,7 @@ class IndexView(generic.TemplateView):
     template_name = 'faunaweb/index.html'
 
     def get_context_data(self, **kwargs):
+        language = get_language()
         context = super().get_context_data(**kwargs)
         latest_observations = models.Observation.objects.order_by('-date')[:7]
         top_species = models.Observation.objects.select_related('species').values('species', 'species__pk', 'species__species_national', 'species__species_scientific').annotate(species_count=Count('species')).order_by('-species_count')[:7]
@@ -24,7 +26,6 @@ class IndexView(generic.TemplateView):
         random_index = random.randint(0, species_count - 1)
         random_species = models.AnimalSpecies.objects.all()[random_index]
         welcome = models.Content.objects.get(id=3)
-        language = get_language()
         context['latest_observations'] = latest_observations
         context['top_species'] = top_species
         context['random_species'] = random_species
@@ -157,13 +158,17 @@ class DataAnalysisView(generic.TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        language = get_language()
 
         # animal_classes.js
         animal_class_counts = models.AnimalClass.objects.annotate(
             species_count=Count('species'),
             observed_species_count=Count('species__observation__species', distinct=True)
         )
-        animal_class_labels = [animal_class.class_scientific for animal_class in animal_class_counts]
+        if language == 'lt':
+            animal_class_labels = [animal_class.class_national for animal_class in animal_class_counts]
+        else:
+            animal_class_labels = [animal_class.class_en for animal_class in animal_class_counts]
         species_count_data = [animal_class.species_count for animal_class in animal_class_counts]
         observed_species_data = [animal_class.observed_species_count for animal_class in animal_class_counts]
         context['animal_class_labels'] = animal_class_labels
@@ -172,14 +177,20 @@ class DataAnalysisView(generic.TemplateView):
 
         # places.js
         observation_places_counts = models.Place.objects.annotate(observation_count=Count('observation')).order_by('-observation_count')[:10]
-        places_labels = [observation_place.place_national for observation_place in observation_places_counts]
+        if language == 'lt':
+            places_labels = [observation_place.place_national for observation_place in observation_places_counts]
+        else:
+            places_labels = [observation_place.place_en for observation_place in observation_places_counts]
         places_data = [observation_place.observation_count for observation_place in observation_places_counts]
         context['places_labels'] = places_labels
         context['places_data'] = places_data
 
         # species_count.js
         species_counts = models.AnimalSpecies.objects.annotate(count=Sum('observation__count')).order_by('-count')[:10]
-        species_labels = [species_count.species_national for species_count in species_counts]
+        if language == 'lt':
+            species_labels = [species_count.species_national for species_count in species_counts]
+        else:
+            species_labels = [species_count.species_en if species_count.species_en else species_count.species_scientific for species_count in species_counts]
         species_data = [species_count.count for species_count in species_counts]
         context['species_labels'] = species_labels
         context['species_data'] = species_data
@@ -188,7 +199,12 @@ class DataAnalysisView(generic.TemplateView):
         today = datetime.now()
         start_date = today - timedelta(days=365)
         observation_counts = models.Observation.objects.filter(date__gte=start_date).annotate(month=TruncMonth('date')).values('month').annotate(count=Count('id'))
-        month_labels = [count['month'].strftime('%B %Y') for count in observation_counts]
+        if language == 'lt':
+            locale.setlocale(locale.LC_ALL, 'lt_LT.utf-8')
+            month_labels = [count['month'].strftime('%Y %B') for count in observation_counts]
+        else:
+            locale.setlocale(locale.LC_ALL, 'en_US.utf-8')
+            month_labels = [count['month'].strftime('%B %Y') for count in observation_counts]
         month_data = [count['count'] for count in observation_counts]
         context['month_labels'] = month_labels
         context['month_data'] = month_data
@@ -229,8 +245,8 @@ class AboutView(generic.TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        about = models.Content.objects.get(id=4)
         language = get_language()
+        about = models.Content.objects.get(id=4)
         if language == 'lt' and about.content_national:
             context['about'] = about.content_national
         else:
