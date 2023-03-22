@@ -2,7 +2,11 @@
 {% load static i18n %}
 {% block title %}{{ block.super }}{% endblock title %}
 {% block content %}
-<h1>{{ current_animal_class.class_national }} ({{ current_animal_class.class_scientific }})</h1>
+{% if request.META.HTTP_ACCEPT_LANGUAGE|slice:":2" == 'lt' %}
+    <h1>{{ current_animal_class.class_national }} ({{ current_animal_class.class_scientific }})</h1>
+{% else %}
+    <h1>{{ current_animal_class.class_en }} ({{ current_animal_class.class_scientific }})</h1>
+{% endif %}
 {% include 'faunaweb/includes/search.html' %}
 {% include 'faunaweb/includes/paginator_next.html' %}
 <div class="flex-main">
@@ -10,7 +14,11 @@
         {% for species in species_list %}
             <a href="{% url 'species_detail' species.pk %}">
                 <div class="flex-classes-box">
-                    <h4>{{ species.species_national }}</h4>
+                    {% if request.META.HTTP_ACCEPT_LANGUAGE|slice:":2" == 'lt' %}
+                        <h4>{{ species.species_national }}</h4>
+                    {% else %}
+                        <h4>{{ species.species_en }}</h4>
+                    {% endif %}
                     <h4>({{ species.species_scientific }})</h4>
                     {% if species.species_image %}
                         <img src="{{ species.species_image.url }}">
