@@ -72,8 +72,12 @@ class AnimalSpeciesDetailView(generic.DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        language = get_language()
         species = self.object
-        url = 'https://en.wikipedia.org/wiki/' + species.species_en.replace(' ', '_')
+        if language == 'lt':
+            url = 'https://lt.wikipedia.org/wiki/' + species.species_national.replace(' ', '_')
+        else:
+            url = 'https://en.wikipedia.org/wiki/' + species.species_en.replace(' ', '_')
         response = requests.get(url=url)
         soup = BeautifulSoup(response.content, 'html.parser')
         p_tags = soup.find_all('p')

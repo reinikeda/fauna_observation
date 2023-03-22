@@ -4,9 +4,15 @@
 {% block content %}
 <div class="flex-main">
     <div class="flex-species-box">
-        <h2>{{ object.species_national }} ({{ object.species_scientific }})</h2>
-        <h4>{% trans 'family'|capfirst %}: {{ object.family_national }} ({{ object.family_scientific }})</h4>
-        <h4>{% trans 'order'|capfirst %}: {{ object.order_national }} ({{ object.order_scientific }})</h4>
+        {% if request.META.HTTP_ACCEPT_LANGUAGE|slice:":2" == 'lt' %}
+            <h2>{{ object.species_national }} ({{ object.species_scientific }})</h2>
+            <h4>{% trans 'family'|capfirst %}: {{ object.family_national }} ({{ object.family_scientific }})</h4>
+            <h4>{% trans 'order'|capfirst %}: {{ object.order_national }} ({{ object.order_scientific }})</h4>
+        {% else %}
+            <h2>{{ object.species_en }} ({{ object.species_scientific }})</h2>
+            <h4>{% trans 'family'|capfirst %}: {{ object.family_en }} ({{ object.family_scientific }})</h4>
+            <h4>{% trans 'order'|capfirst %}: {{ object.order_en }} ({{ object.order_scientific }})</h4>
+        {% endif %}
     </div>
     <div class="flex-species-box">
         <h4>{% trans 'number of observations'|capfirst %}: {{ observation_count }}</h4>
@@ -24,7 +30,7 @@
     </div>
     {% if request.user.is_authenticated %}
     <div class="flex-species-box">
-        <p>{% trans 'Click'|capfirst %} <a href="{% url 'add_observation' %}">{% trans 'here'|lower %}</a> {% trans 'to add new observation of this species'|lower %}</p>
+        <h4>{% trans 'Click'|capfirst %} <a href="{% url 'add_observation' %}">{% trans 'here'|lower %}</a> {% trans 'to add new observation of this species'|lower %}</h4>
     </div>
     {% endif %}
 </div>
