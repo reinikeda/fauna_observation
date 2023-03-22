@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-22 09:56+0200\n"
+"POT-Creation-Date: 2023-03-22 11:16+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -238,8 +238,15 @@ msgstr "rūšis"
 msgid "add"
 msgstr "pridėti"
 
-#: .\faunaweb\templates\faunaweb\animal_classes.html:22
-#: .\faunaweb\templates\faunaweb\species_list.html:24
+#: .\faunaweb\templates\faunaweb\animal_classes.html:20
+#: .\faunaweb\templates\faunaweb\index.html:17
+#: .\faunaweb\templates\faunaweb\species_detail.html:24
+#: .\faunaweb\templates\faunaweb\species_list.html:26
+msgid "default image"
+msgstr "standartinis paveikslėlis"
+
+#: .\faunaweb\templates\faunaweb\animal_classes.html:26
+#: .\faunaweb\templates\faunaweb\species_list.html:32
 msgid "no animal classes uploaded to database"
 msgstr "duomenų bazėje nėra jokių gyvūnų klasių"
 
@@ -344,24 +351,25 @@ msgstr "atstatyti"
 msgid "welcome to"
 msgstr "sveiki atvykę į"
 
-#: .\faunaweb\templates\faunaweb\index.html:15
+#: .\faunaweb\templates\faunaweb\index.html:20
 msgid "sorry, no random species found"
 msgstr "atsiprašome, atsitiktinė rūšis nebuvo rasta"
 
-#: .\faunaweb\templates\faunaweb\index.html:23
+#: .\faunaweb\templates\faunaweb\index.html:28
 msgid "top registered species"
 msgstr "dažniausiai registruotos rūšys"
 
-#: .\faunaweb\templates\faunaweb\index.html:25
+#: .\faunaweb\templates\faunaweb\index.html:31
+#: .\faunaweb\templates\faunaweb\index.html:33
 msgid "time(s)"
 msgstr "kartas(-ai)"
 
-#: .\faunaweb\templates\faunaweb\index.html:28
-#: .\faunaweb\templates\faunaweb\index.html:38
+#: .\faunaweb\templates\faunaweb\index.html:37
+#: .\faunaweb\templates\faunaweb\index.html:51
 msgid "no species observations were registered"
 msgstr "jokių rūšių nebuvo užregistruota"
 
-#: .\faunaweb\templates\faunaweb\index.html:33
+#: .\faunaweb\templates\faunaweb\index.html:42
 msgid "latest observations"
 msgstr "naujausi stebėjimai"
 
@@ -374,50 +382,52 @@ msgstr "visi stebėtojai jau užfiksavo"
 msgid "class"
 msgstr "klasė"
 
-#: .\faunaweb\templates\faunaweb\observation.html:38
+#: .\faunaweb\templates\faunaweb\observation.html:46
 #: .\faunaweb\templates\faunaweb\user_observation.html:39
 msgid "no image uploaded"
 msgstr "paveikslėlis neįkeltas"
 
-#: .\faunaweb\templates\faunaweb\observation.html:44
+#: .\faunaweb\templates\faunaweb\observation.html:52
 #: .\faunaweb\templates\faunaweb\user_observation.html:47
 msgid "total entries"
 msgstr "viso įrašų"
 
-#: .\faunaweb\templates\faunaweb\observation.html:46
+#: .\faunaweb\templates\faunaweb\observation.html:54
 #: .\faunaweb\templates\faunaweb\user_observation.html:49
 msgid "no observations yet"
 msgstr "stebėjimų kol kas nėra"
 
-#: .\faunaweb\templates\faunaweb\species_detail.html:8
+#: .\faunaweb\templates\faunaweb\species_detail.html:9
+#: .\faunaweb\templates\faunaweb\species_detail.html:13
 msgid "family"
 msgstr "šeima"
 
-#: .\faunaweb\templates\faunaweb\species_detail.html:9
+#: .\faunaweb\templates\faunaweb\species_detail.html:10
+#: .\faunaweb\templates\faunaweb\species_detail.html:14
 msgid "order"
 msgstr "būrys"
 
-#: .\faunaweb\templates\faunaweb\species_detail.html:12
+#: .\faunaweb\templates\faunaweb\species_detail.html:18
 msgid "number of observations"
 msgstr "stebėjimų skaičius"
 
-#: .\faunaweb\templates\faunaweb\species_detail.html:23
+#: .\faunaweb\templates\faunaweb\species_detail.html:29
 msgid "read more on"
 msgstr "skaitykite daugiau"
 
-#: .\faunaweb\templates\faunaweb\species_detail.html:23
+#: .\faunaweb\templates\faunaweb\species_detail.html:29
 msgid "Wikipedia"
 msgstr "Vikipedijoje"
 
-#: .\faunaweb\templates\faunaweb\species_detail.html:27
+#: .\faunaweb\templates\faunaweb\species_detail.html:33
 msgid "Click"
 msgstr "Spausti"
 
-#: .\faunaweb\templates\faunaweb\species_detail.html:27
+#: .\faunaweb\templates\faunaweb\species_detail.html:33
 msgid "here"
 msgstr "čia"
 
-#: .\faunaweb\templates\faunaweb\species_detail.html:27
+#: .\faunaweb\templates\faunaweb\species_detail.html:33
 msgid "to add new observation of this species"
 msgstr "pridėti naują šios rūšies stebėjimą"
 

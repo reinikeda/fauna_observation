@@ -15,9 +15,9 @@
                 {% endif %}
                 <h4>({{ class.class_scientific }})</h4>
                 {% if class.example_image %}
-                    <img src="{{ class.example_image.url }}">
+                    <img src="{{ class.example_image.url }}" alt="{{ class.class_scientific }}">
                 {% else %}
-                    <img src="{% static 'img/default.png' %}">
+                    <img src="{% static 'img/default.png' %}" alt="{% trans 'default image'|lower %}">
                 {% endif %}
             </div>
         </a>

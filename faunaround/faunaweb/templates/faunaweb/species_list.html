@@ -21,9 +21,9 @@
                     {% endif %}
                     <h4>({{ species.species_scientific }})</h4>
                     {% if species.species_image %}
-                        <img src="{{ species.species_image.url }}">
+                        <img src="{{ species.species_image.url }}" alt="{{ species.species_scientific }}">
                     {% else %}
-                        <img src="{% static 'img/default.png' %}">
+                        <img src="{% static 'img/default.png' %}" alt="{% trans 'default image'|lower %}">
                     {% endif %}
                 </div>
             </a>

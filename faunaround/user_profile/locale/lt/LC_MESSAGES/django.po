@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-21 14:00+0200\n"
+"POT-Creation-Date: 2023-03-22 11:16+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,6 +19,7 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n % 10 == 1 && (n % 100 > 19 || n % 100 < "
 "11) ? 0 : (n % 10 >= 2 && n % 10 <=9) && (n % 100 > 19 || n % 100 < 11) ? "
 "1 : n % 1 != 0 ? 2: 3);\n"
+
 #: .\user_profile\apps.py:8
 msgid "user profile"
 msgstr "vartotojo profilis"
@@ -155,6 +156,10 @@ msgstr "profilis"
 msgid "user details"
 msgstr "vartotojo duomenys"
 
+#: .\user_profile\templates\user_profile\detail.html:9
+msgid "user profile picture"
+msgstr "vartotojo profilio paveikslėlis"
+
 #: .\user_profile\templates\user_profile\detail.html:15
 msgid "full name"
 msgstr "pilnas vardas"
@@ -179,7 +184,9 @@ msgstr "iki 100 simbolių"
 #: .\user_profile\templates\user_profile\register.html:23
 msgid ""
 "minimum 8 symbols and cannot be only numbers, or match any part of username"
-msgstr "mažiausiai 8 simboliai ir negali būti tik skaičiai arba atitikti kurią nors dalį vartotojo vardo"
+msgstr ""
+"mažiausiai 8 simboliai ir negali būti tik skaičiai arba atitikti kurią nors "
+"dalį vartotojo vardo"
 
 #: .\user_profile\templates\user_profile\register.html:27
 msgid "confirm password"
@@ -219,7 +226,9 @@ msgstr "vartotojo vardas jau užimtas arba nebuvo įvestas"
 
 #: .\user_profile\views.py:29
 msgid "user with this email already exists, or email was not entered"
-msgstr "vartotojas su šiuo el. pašto adresu jau registruotas arba el. paštas nebuvo įvestas"
+msgstr ""
+"vartotojas su šiuo el. pašto adresu jau registruotas arba el. paštas nebuvo "
+"įvestas"
 
 #: .\user_profile\views.py:60
 msgid "your profile was successfully updated"

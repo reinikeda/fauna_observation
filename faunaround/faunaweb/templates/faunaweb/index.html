@@ -14,7 +14,7 @@
             {% if random_species.species_image %}
                 <img src="{{ random_species.species_image.url }}" alt="{{ random_species.species_scientific }}">
             {% else %}
-                <img src="{% static 'img/default.png' %}">
+                <img src="{% static 'img/default.png' %}" alt="{% trans 'default image'|lower %}">
             {% endif %}
         {% else %}
             <p>{% trans 'sorry, no random species found'|capfirst %}</p>

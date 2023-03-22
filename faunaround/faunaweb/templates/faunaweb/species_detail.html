@@ -19,9 +19,9 @@
     </div>
     <div class="flex-species-box">
         {% if object.species_image %}
-            <img src="{{ object.species_image.url }}">
+            <img src="{{ object.species_image.url }}" alt="{{ object.species_scientific }}">
         {% else %}
-            <img src="{% static 'img/default.png' %}">
+            <img src="{% static 'img/default.png' %}" alt="{% trans 'default image'|lower %}">
         {% endif %}
     </div>
     <div class="flex-species-box">

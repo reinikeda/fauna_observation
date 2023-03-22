@@ -41,7 +41,7 @@
             </td>
             <td>
                 {% if observation.photo %}
-                <img src="{{ observation.photo.url }}" class="observation-img">
+                <img src="{{ observation.photo.url }}" class="observation-img" alt="{{ observation.species.species_scientific }}">
                 {% else %}
                 <p>{% trans 'no image uploaded'|capfirst %}</p>
                 {% endif %}
