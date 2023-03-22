@@ -148,3 +148,42 @@ EMAIL_POST = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = local_settings.EMAIL_HOST_USER
 EMAIL_HOST_PASSWORD = local_settings.EMAIL_HOST_PASSWORD
+
+# Logging
+
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'custom': {
+            'format': '[%(asctime)s] %(levelname)s %(message)s',
+            'datefmt': '%Y-%m-%d %H:%M:%S',
+        },
+    },
+    'handlers': {
+        'faunaweb': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': BASE_DIR / 'faunaweb/logs/debug.log',
+            'formatter': 'custom',
+        },
+        'user_profile': {
+            'level': 'DEBUG',
+            'class': 'logging.FileHandler',
+            'filename': BASE_DIR / 'user_profile/logs/debug.log',
+            'formatter': 'custom',
+        },
+    },
+    'loggers': {
+        'faunaweb': {
+            'handlers': ['faunaweb'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+        'user_profile': {
+            'handlers': ['user_profile'],
+            'level': 'DEBUG',
+            'propagate': True,
+        },
+    },
+}

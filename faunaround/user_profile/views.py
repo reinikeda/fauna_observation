@@ -1,3 +1,4 @@
+import logging
 from django.contrib import messages
 from django.contrib.auth import get_user_model
 from django.contrib.auth.decorators import login_required
@@ -10,6 +11,9 @@ from . import forms, models
 
 User = get_user_model()
 
+logger = logging.getLogger(__name__)
+
+
 @csrf_protect
 def register(request):
     if request.method == "POST":
@@ -21,12 +25,15 @@ def register(request):
         if len(password1) == 0 or password1 != password2:
             is_error = True
             messages.error(request, _('password do not match or were not entered'))
+            logger.error('password do not match or were not entered')
         if len(username) == 0 or User.objects.filter(username=username).exists():
             is_error = True
             messages.error(request, _('username already taken or was not entered'))
+            logger.error('username already taken or was not entered')
         if len(email) == 0 or User.objects.filter(email=email).exists():
             is_error = True
             messages.error(request, _('user with this email already exists, or email was not entered'))
+            logger.error('user with this email already exists, or email was not entered')
         if not is_error:            
             try:
                 User.objects.create_user(username=username, email=email, password=password1)
