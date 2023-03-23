@@ -3,6 +3,13 @@
 {% block title %}{{ object.user }} {% trans 'profile at'|lower %} {{ block.super }}{% endblock title %}
 {% block content %}
 <h1>{% trans 'user details'|capfirst %}</h1>
+{% if messages %}
+    <ul>
+        {% for message in messages %}
+            <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
 <ul class="user-profile">
     <li>
         <div>

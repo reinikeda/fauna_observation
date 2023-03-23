@@ -3,6 +3,13 @@
 {% block title %}{% trans 'sign up to'|capfirst %} {{ block.super }}{% endblock title %}
 {% block content %}
 <h1>{% trans 'member registration'|capfirst %}</h1>
+{% if messages %}
+    <ul>
+        {% for message in messages %}
+            <li>{{ message }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
 <form method="post" action="{{ request.path }}">
     {% csrf_token %}
     <table class="form-table">
