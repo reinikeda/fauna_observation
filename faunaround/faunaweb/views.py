@@ -9,9 +9,13 @@ from django.utils.translation import gettext_lazy as _
 import requests
 import random
 import locale
+import logging
 from bs4 import BeautifulSoup
 from . import models
 from .forms import ObservationForm
+
+
+logger = logging.getLogger(__name__)
 
 
 class IndexView(generic.TemplateView):
@@ -267,6 +271,7 @@ def add_observation(request):
             observation = form.save(commit=False)
             observation.observer = request.user
             observation.save()
+            logger.info('new observation was added', extra={'user': request.user})
             return redirect('observations')
     else:
         form = ObservationForm()
@@ -281,6 +286,7 @@ def edit_observation(request, pk):
             observation = form.save(commit=False)
             observation.observer = request.user
             observation.save()
+            logger.info('observation was edited', extra={'user': request.user})
             return redirect('user_observations')
     else:
         form = ObservationForm(instance=observation)
@@ -291,5 +297,6 @@ def delete_observation(request, pk):
     observation = get_object_or_404(models.Observation, pk=pk)
     if request.method == 'POST':
         observation.delete()
+        logger.info('observation was deleted', extra={'user': request.user})
         return redirect('user_observations')
     return render(request, 'faunaweb/delete_observation.html', {'observation': observation})
