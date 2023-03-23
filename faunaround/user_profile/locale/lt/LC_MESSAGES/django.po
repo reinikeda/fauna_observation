@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-22 11:16+0200\n"
+"POT-Creation-Date: 2023-03-23 14:05+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -73,14 +73,14 @@ msgid "please try again"
 msgstr "prašau pabandyti dar kartą"
 
 #: .\user_profile\templates\registration\login.html:13
-#: .\user_profile\templates\user_profile\detail.html:18
-#: .\user_profile\templates\user_profile\register.html:10
-#: .\user_profile\templates\user_profile\update.html:9
+#: .\user_profile\templates\user_profile\detail.html:25
+#: .\user_profile\templates\user_profile\register.html:17
+#: .\user_profile\templates\user_profile\update.html:10
 msgid "username"
 msgstr "vartotojo vardas"
 
 #: .\user_profile\templates\registration\login.html:17
-#: .\user_profile\templates\user_profile\register.html:21
+#: .\user_profile\templates\user_profile\register.html:28
 msgid "password"
 msgstr "slaptažodis"
 
@@ -142,9 +142,9 @@ msgid "forgot password at"
 msgstr "pamiršote slaptažodį"
 
 #: .\user_profile\templates\registration\password_reset_form.html:13
-#: .\user_profile\templates\user_profile\detail.html:19
-#: .\user_profile\templates\user_profile\register.html:16
-#: .\user_profile\templates\user_profile\update.html:13
+#: .\user_profile\templates\user_profile\detail.html:26
+#: .\user_profile\templates\user_profile\register.html:23
+#: .\user_profile\templates\user_profile\update.html:14
 msgid "email"
 msgstr "el. paštas"
 
@@ -156,16 +156,16 @@ msgstr "profilis"
 msgid "user details"
 msgstr "vartotojo duomenys"
 
-#: .\user_profile\templates\user_profile\detail.html:9
+#: .\user_profile\templates\user_profile\detail.html:16
 msgid "user profile picture"
 msgstr "vartotojo profilio paveikslėlis"
 
-#: .\user_profile\templates\user_profile\detail.html:15
+#: .\user_profile\templates\user_profile\detail.html:22
 msgid "full name"
 msgstr "pilnas vardas"
 
-#: .\user_profile\templates\user_profile\detail.html:20
-#: .\user_profile\templates\user_profile\update.html:4
+#: .\user_profile\templates\user_profile\detail.html:27
+#: .\user_profile\templates\user_profile\update.html:5
 msgid "update your profile"
 msgstr "atnaujinti savo profilį"
 
@@ -177,59 +177,59 @@ msgstr "užsiregistruoti į"
 msgid "member registration"
 msgstr "nario registracija"
 
-#: .\user_profile\templates\user_profile\register.html:12
+#: .\user_profile\templates\user_profile\register.html:19
 msgid "up to 100 symbols"
 msgstr "iki 100 simbolių"
 
-#: .\user_profile\templates\user_profile\register.html:23
+#: .\user_profile\templates\user_profile\register.html:30
 msgid ""
 "minimum 8 symbols and cannot be only numbers, or match any part of username"
 msgstr ""
 "mažiausiai 8 simboliai ir negali būti tik skaičiai arba atitikti kurią nors "
 "dalį vartotojo vardo"
 
-#: .\user_profile\templates\user_profile\register.html:27
+#: .\user_profile\templates\user_profile\register.html:34
 msgid "confirm password"
 msgstr "patvirtinti slaptažodį"
 
-#: .\user_profile\templates\user_profile\register.html:31
+#: .\user_profile\templates\user_profile\register.html:38
 msgid "sign up"
 msgstr "užsiregistruoti"
 
-#: .\user_profile\templates\user_profile\update.html:2
+#: .\user_profile\templates\user_profile\update.html:3
 msgid "updating profile at"
 msgstr "atnaujinamas profilis"
 
-#: .\user_profile\templates\user_profile\update.html:17
+#: .\user_profile\templates\user_profile\update.html:18
 msgid "first name"
 msgstr "vardas"
 
-#: .\user_profile\templates\user_profile\update.html:21
+#: .\user_profile\templates\user_profile\update.html:22
 msgid "last name"
 msgstr "pavardė"
 
-#: .\user_profile\templates\user_profile\update.html:25
+#: .\user_profile\templates\user_profile\update.html:26
 msgid "profile photo"
 msgstr "profilio nuotrauka"
 
-#: .\user_profile\templates\user_profile\update.html:29
+#: .\user_profile\templates\user_profile\update.html:30
 msgid "update"
 msgstr "atnaujinti"
 
-#: .\user_profile\views.py:23
+#: .\user_profile\views.py:27
 msgid "password do not match or were not entered"
 msgstr "slaptažodžiai nesutampa arba nebuvo įvesti"
 
-#: .\user_profile\views.py:26
+#: .\user_profile\views.py:31
 msgid "username already taken or was not entered"
 msgstr "vartotojo vardas jau užimtas arba nebuvo įvestas"
 
-#: .\user_profile\views.py:29
+#: .\user_profile\views.py:35
 msgid "user with this email already exists, or email was not entered"
 msgstr ""
 "vartotojas su šiuo el. pašto adresu jau registruotas arba el. paštas nebuvo "
 "įvestas"
 
-#: .\user_profile\views.py:60
+#: .\user_profile\views.py:67
 msgid "your profile was successfully updated"
 msgstr "jūsų profilis buvo sėkmingai atnaujintas"

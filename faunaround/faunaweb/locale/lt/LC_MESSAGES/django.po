@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-03-22 11:16+0200\n"
+"POT-Creation-Date: 2023-03-23 14:05+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -102,15 +102,19 @@ msgstr "nykstanti rūšis"
 msgid "species image"
 msgstr "rušies paveikslėlis"
 
-#: .\faunaweb\models.py:60
+#: .\faunaweb\models.py:49 .\faunaweb\models.py:50 .\faunaweb\models.py:79
+msgid "animal species"
+msgstr "gyvūnų rušis"
+
+#: .\faunaweb\models.py:62
 msgid "place english name"
 msgstr "vietos angliškas pavadinimas"
 
-#: .\faunaweb\models.py:61
+#: .\faunaweb\models.py:63
 msgid "place national name"
 msgstr "vietos nacionalinis pavadinimas"
 
-#: .\faunaweb\models.py:68 .\faunaweb\models.py:85
+#: .\faunaweb\models.py:70 .\faunaweb\models.py:87
 #: .\faunaweb\templates\faunaweb\add_observation.html:22
 #: .\faunaweb\templates\faunaweb\delete_observation.html:11
 #: .\faunaweb\templates\faunaweb\edit_observation.html:22
@@ -119,15 +123,11 @@ msgstr "vietos nacionalinis pavadinimas"
 msgid "place"
 msgstr "vieta"
 
-#: .\faunaweb\models.py:69
+#: .\faunaweb\models.py:71
 msgid "places"
 msgstr "vietos"
 
-#: .\faunaweb\models.py:77
-msgid "animal species"
-msgstr "gyvūnų rušis"
-
-#: .\faunaweb\models.py:79
+#: .\faunaweb\models.py:81
 #: .\faunaweb\templates\faunaweb\add_observation.html:10
 #: .\faunaweb\templates\faunaweb\delete_observation.html:8
 #: .\faunaweb\templates\faunaweb\edit_observation.html:10
@@ -136,7 +136,7 @@ msgstr "gyvūnų rušis"
 msgid "date"
 msgstr "data"
 
-#: .\faunaweb\models.py:80
+#: .\faunaweb\models.py:82
 #: .\faunaweb\templates\faunaweb\add_observation.html:18
 #: .\faunaweb\templates\faunaweb\delete_observation.html:10
 #: .\faunaweb\templates\faunaweb\edit_observation.html:18
@@ -145,11 +145,11 @@ msgstr "data"
 msgid "count"
 msgstr "kiekis"
 
-#: .\faunaweb\models.py:89 .\faunaweb\templates\faunaweb\observation.html:17
+#: .\faunaweb\models.py:91 .\faunaweb\templates\faunaweb\observation.html:17
 msgid "observer"
 msgstr "stebėtojas"
 
-#: .\faunaweb\models.py:95
+#: .\faunaweb\models.py:97
 #: .\faunaweb\templates\faunaweb\add_observation.html:26
 #: .\faunaweb\templates\faunaweb\delete_observation.html:12
 #: .\faunaweb\templates\faunaweb\edit_observation.html:26
@@ -158,22 +158,30 @@ msgstr "stebėtojas"
 msgid "photo"
 msgstr "nuotrauka"
 
-#: .\faunaweb\models.py:105
+#: .\faunaweb\models.py:107
 msgid "observation"
 msgstr "stebėjimas"
 
-#: .\faunaweb\models.py:106 .\faunaweb\templates\base.html:28
+#: .\faunaweb\models.py:108 .\faunaweb\templates\base.html:28
 #: .\faunaweb\templates\faunaweb\observation.html:5
 msgid "observations"
 msgstr "stebėjimai"
 
-#: .\faunaweb\models.py:119
+#: .\faunaweb\models.py:121
 msgid "content english"
 msgstr "turinys angliškai"
 
-#: .\faunaweb\models.py:120
+#: .\faunaweb\models.py:122
 msgid "content national"
 msgstr "turinys nacionaline kalba"
+
+#: .\faunaweb\models.py:128
+msgid "content"
+msgstr "turinys"
+
+#: .\faunaweb\models.py:129
+msgid "contents"
+msgstr "turinys"
 
 #: .\faunaweb\templates\base.html:22
 msgid "best place to record your fauna observations"

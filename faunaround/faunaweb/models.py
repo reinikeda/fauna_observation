@@ -46,7 +46,9 @@ class AnimalSpecies(models.Model):
     
     class Meta:
         ordering = ['order_scientific', 'species_scientific']
-        
+        verbose_name=_('animal species')
+        verbose_name_plural=_('animal species')
+
     def save(self, *args, **kwargs):
         super().save(*args, **kwargs)
         species_image = Image.open(self.species_image.path)
@@ -65,8 +67,8 @@ class Place(models.Model):
 
     class Meta:
         ordering = ['place_national']
-        verbose_name = _('place')
-        verbose_name_plural = _('places')
+        verbose_name=_('place')
+        verbose_name_plural=_('places')
 
 
 class Observation(models.Model):
@@ -119,6 +121,9 @@ class Content(models.Model):
     content_en = HTMLField(_('content english'), max_length=4000, null=True, blank=True)
     content_national = HTMLField(_('content national'), max_length=4000, null=True, blank=True)
     
-
     def __str__(self):
         return self.content_national
+    
+    class Meta:
+        verbose_name=_('content')
+        verbose_name_plural=_('contents')
