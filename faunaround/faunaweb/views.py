@@ -114,15 +114,16 @@ class ObservationListView(generic.ListView):
         query = self.request.GET.get('search')
         if query:
             qs = qs.filter(
-            Q(species__class_id__class_scientific__icontains=query) |
-            Q(species__class_id__class_en__icontains=query) |
-            Q(species__class_id__class_national__icontains=query) |            
-            Q(species__species_scientific__icontains=query) |
-            Q(species__species_en__icontains=query) |
-            Q(species__species_national__icontains=query) |
-            Q(place__place_national__icontains=query) |
-            Q(date__icontains=query)
-        )
+                Q(species__class_id__class_scientific__icontains=query) |
+                Q(species__class_id__class_en__icontains=query) |
+                Q(species__class_id__class_national__icontains=query) |            
+                Q(species__species_scientific__icontains=query) |
+                Q(species__species_en__icontains=query) |
+                Q(species__species_national__icontains=query) |
+                Q(place__place_national__icontains=query) |
+                Q(date__icontains=query)
+            )
+        qs = qs.order_by('-id')
         return qs
 
     def get_context_data(self, **kwargs):
@@ -157,6 +158,7 @@ class UserObservationListView(generic.ListView):
             Q(place__place_national__icontains=query) |
             Q(date__icontains=query)
         )
+        qs = qs.order_by('-id')
         return qs
 
     def get_context_data(self, **kwargs):
