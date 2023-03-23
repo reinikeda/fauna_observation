@@ -30,7 +30,7 @@
     </div>
     {% if request.user.is_authenticated %}
     <div class="flex-species-box">
-        <h4>{% trans 'Click'|capfirst %} <a href="{% url 'add_observation' %}">{% trans 'here'|lower %}</a> {% trans 'to add new observation of this species'|lower %}</h4>
+        <h4>{% trans 'Click'|capfirst %} <a href="{% url 'add_observation' %}?species_id={{ object.id }}">{% trans 'here'|lower %}</a> {% trans 'to add new observation of this species'|lower %}</h4>
     </div>
     {% endif %}
 </div>

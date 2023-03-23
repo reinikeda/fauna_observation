@@ -265,6 +265,11 @@ class AboutView(generic.TemplateView):
 
 @login_required
 def add_observation(request):
+    species_id = request.GET.get('species_id')
+    if species_id:
+        initial = {'species': species_id}
+    else:
+        initial = {}
     if request.method == 'POST':
         form = ObservationForm(request.POST, request.FILES)
         if form.is_valid():
@@ -274,7 +279,7 @@ def add_observation(request):
             logger.info('new observation was added', extra={'user': request.user})
             return redirect('observations')
     else:
-        form = ObservationForm()
+        form = ObservationForm(initial=initial)
     return render(request, 'faunaweb/add_observation.html', {'form': form})
 
 @login_required
