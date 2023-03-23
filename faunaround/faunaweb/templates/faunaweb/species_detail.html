@@ -4,7 +4,7 @@
 {% block content %}
 <div class="flex-main">
     <div class="flex-species-box">
-        {% if request.META.HTTP_ACCEPT_LANGUAGE|slice:":2" == 'lt' %}
+        {% if LANGUAGE_CODE == 'lt' %}
             <h2>{{ object.species_national }} ({{ object.species_scientific }})</h2>
             <h4>{% trans 'family'|capfirst %}: {{ object.family_national }} ({{ object.family_scientific }})</h4>
             <h4>{% trans 'order'|capfirst %}: {{ object.order_national }} ({{ object.order_scientific }})</h4>

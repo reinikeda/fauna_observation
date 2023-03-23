@@ -2,7 +2,7 @@
 {% load static i18n %}
 {% block title %}{{ block.super }}{% endblock title %}
 {% block content %}
-{% if request.META.HTTP_ACCEPT_LANGUAGE|slice:":2" == 'lt' %}
+{% if LANGUAGE_CODE == 'lt' %}
     <h1>{{ current_animal_class.class_national }} ({{ current_animal_class.class_scientific }})</h1>
 {% else %}
     <h1>{{ current_animal_class.class_en }} ({{ current_animal_class.class_scientific }})</h1>
@@ -14,7 +14,7 @@
         {% for species in species_list %}
             <a href="{% url 'species_detail' species.pk %}">
                 <div class="flex-classes-box">
-                    {% if request.META.HTTP_ACCEPT_LANGUAGE|slice:":2" == 'lt' %}
+                    {% if LANGUAGE_CODE == 'lt' %}
                         <h4>{{ species.species_national }}</h4>
                     {% else %}
                         <h4>{{ species.species_en }}</h4>

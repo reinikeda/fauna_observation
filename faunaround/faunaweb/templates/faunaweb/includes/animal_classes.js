@@ -9,9 +9,9 @@ var lang = {
     }
 };
 
-var browserLang = navigator.language || navigator.userLanguage;
+var languageCode = '{{ LANGUAGE_CODE }}';
 
-var language = lang[browserLang] ? lang[browserLang] : lang['en'];
+var language = lang[languageCode] ? lang[languageCode] : lang['en'];
 
 var ctx = document.getElementById('species-chart').getContext('2d');
 var myChart = new Chart(ctx, {

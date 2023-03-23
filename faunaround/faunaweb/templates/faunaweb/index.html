@@ -5,7 +5,7 @@
 <div class="flex-main">
     <div class="flex-main-box">
         {% if random_species %}
-            {% if request.META.HTTP_ACCEPT_LANGUAGE|slice:":2" == 'lt' %}
+            {% if LANGUAGE_CODE == 'lt' %}
                 <h4><a href="{% url 'species_detail' random_species.pk %}">{{ random_species.species_national }}</a></h4>
             {% else %}
                 <h4><a href="{% url 'species_detail' random_species.pk %}">{{ random_species.species_en }}</a></h4>
@@ -27,7 +27,7 @@
         {% if top_species %}
             <h4>{% trans 'top registered species'|capfirst %}</h4>
             {% for observation in top_species %}
-                {% if request.META.HTTP_ACCEPT_LANGUAGE|slice:":2" == 'lt' %}
+                {% if LANGUAGE_CODE == 'lt' %}
                     <p><a href="{% url 'species_detail' observation.species__pk %}">{{ observation.species__species_national }} ({{ observation.species__species_scientific }})</a> - {{ observation.species_count }} {% trans 'time(s)'|lower %}</p>
                 {% else %}
                     <p><a href="{% url 'species_detail' observation.species__pk %}">{{ observation.species__species_en }} ({{ observation.species__species_scientific }})</a> - {{ observation.species_count }} {% trans 'time(s)'|lower %}</p>
@@ -41,7 +41,7 @@
         {% if latest_observations %}
             <h4>{% trans 'latest observations'|capfirst %}</h4>
             {% for observation in latest_observations %}
-                {% if request.META.HTTP_ACCEPT_LANGUAGE|slice:":2" == 'lt' %}
+                {% if LANGUAGE_CODE == 'lt' %}
                     <p>{{ observation.date }} - <a href="{% url 'species_detail' observation.species.pk %}">{{ observation.species.species_national }} ({{ observation.species.species_scientific }})</a></p>
                 {% else %}
                     <p>{{ observation.date }} - <a href="{% url 'species_detail' observation.species.pk %}">{{ observation.species.species_en }} ({{ observation.species.species_scientific }})</a></p>

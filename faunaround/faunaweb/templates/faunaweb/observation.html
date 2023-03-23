@@ -19,7 +19,7 @@
     </tr>
     {% for observation in observation_list %}
         <tr>
-            {% if request.META.HTTP_ACCEPT_LANGUAGE|slice:":2" == 'lt' %}
+            {% if LANGUAGE_CODE == 'lt' %}
                 <td>{{ observation.date }}</td>
                 <td>{{ observation.species.class_id.class_national }} ({{ observation.species.class_id.class_scientific }})</td>
                 <td><a href="{% url 'species_detail' observation.species.pk %}">{{ observation.species.species_national }} ({{ observation.species.species_scientific }})</a></td>

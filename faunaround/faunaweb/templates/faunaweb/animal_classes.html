@@ -8,7 +8,7 @@
         {% for class in animalclass_list %}
             <a href="{% url 'species_list' class.pk %}">
             <div class="flex-classes-box">
-                {% if request.META.HTTP_ACCEPT_LANGUAGE|slice:":2" == 'lt' %}
+                {% if LANGUAGE_CODE == 'lt' %}
                     <h4>{{ class.class_national }}</h4>
                 {% else %}
                     <h4>{{ class.class_en }}</h4>
