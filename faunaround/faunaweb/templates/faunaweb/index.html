@@ -51,5 +51,10 @@
             <p>{% trans 'no species observations were registered'|capfirst %}</p>
         {% endif %}
     </div>
+    <div class="flex-main-box">
+        <h4>{% trans 'top 10 observed species'|capfirst %}</h4>
+        <canvas id="observation-species-chart">{% trans 'your browser does not support the canvas element'|capfirst %}</canvas>
+        <script>{% include 'faunaweb/includes/species_count.js' %}</script>
+      </div>
 </div>
 {% endblock content %}

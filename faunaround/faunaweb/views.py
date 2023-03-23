@@ -24,8 +24,8 @@ class IndexView(generic.TemplateView):
     def get_context_data(self, **kwargs):
         language = get_language()
         context = super().get_context_data(**kwargs)
-        latest_observations = models.Observation.objects.order_by('-date')[:6]
-        top_species = models.Observation.objects.select_related('species').values('species', 'species__pk', 'species__species_national', 'species__species_en', 'species__species_scientific').annotate(species_count=Count('species')).order_by('-species_count')[:7]
+        latest_observations = models.Observation.objects.order_by('-date')[:10]
+        top_species = models.Observation.objects.select_related('species').values('species', 'species__pk', 'species__species_national', 'species__species_en', 'species__species_scientific').annotate(species_count=Count('species')).order_by('-species_count')[:10]
         species_count = models.AnimalSpecies.objects.count()
         random_index = random.randint(0, species_count - 1)
         random_species = models.AnimalSpecies.objects.all()[random_index]
@@ -38,6 +38,16 @@ class IndexView(generic.TemplateView):
             context['welcome'] = welcome.content_national
         else:
             context['welcome'] = welcome.content_en
+
+        # species_count.js
+        species_counts = models.AnimalSpecies.objects.annotate(count=Sum('observation__count')).order_by('-count')[:10]
+        if language == 'lt':
+            species_labels = [species_count.species_national for species_count in species_counts]
+        else:
+            species_labels = [species_count.species_en if species_count.species_en else species_count.species_scientific for species_count in species_counts]
+        species_data = [species_count.count for species_count in species_counts]
+        context['species_labels'] = species_labels
+        context['species_data'] = species_data
 
         return context
 
