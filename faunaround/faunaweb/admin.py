@@ -29,8 +29,13 @@ class PlaceAdmin(ImportExportModelAdmin):
     search_fields = ('place_en', 'place_national', )
 
 
+class ObservationAdmin(admin.ModelAdmin):
+    list_display = ('species', 'date', 'count', 'place', 'observer')
+    list_filter = ('observer', )
+    
+
 admin.site.register(models.AnimalClass, AnimalClassAdmin)
 admin.site.register(models.AnimalSpecies, AnimalSpeciesAdmin)
 admin.site.register(models.Place, PlaceAdmin)
-admin.site.register(models.Observation)
+admin.site.register(models.Observation, ObservationAdmin)
 admin.site.register(models.Content)
