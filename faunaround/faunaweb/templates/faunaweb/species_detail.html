@@ -13,6 +13,9 @@
             <h4>{% trans 'family'|capfirst %}: {{ object.family_en }} ({{ object.family_scientific }})</h4>
             <h4>{% trans 'order'|capfirst %}: {{ object.order_en }} ({{ object.order_scientific }})</h4>
         {% endif %}
+        {% if object.endangered %}
+            <h5>{% trans 'species is in the list of extinct, endangered and threatened animals'|capfirst %}</h5>
+        {% endif %}
     </div>
     <div class="flex-species-box">
         <h4>{% trans 'number of observations'|capfirst %}: {{ observation_count }}</h4>
