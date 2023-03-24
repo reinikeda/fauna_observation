@@ -3,8 +3,8 @@
 {% block title %}{{ block.super }}{% endblock title %}
 {% block content %}
 <h1>{% trans 'observations'|capfirst %}</h1>
-{% if observation_list %}
 {% include 'faunaweb/includes/search.html' %}
+{% if observation_list %}
 {% include 'faunaweb/includes/paginator_next.html' %}
 <h3>{% trans 'all observers already spotted'|capfirst %} {{ species_count }} {% trans 'of'|lower %} {{ total_species_count }} {% trans 'species'|lower %}</h3>
 <table class="observation-table">
